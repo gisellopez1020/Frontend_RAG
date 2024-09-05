@@ -26,7 +26,7 @@ h1 {
 h1 .k {
   color: #837bf2;
   text-decoration: none;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 8px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 .k:hover {
@@ -36,6 +36,7 @@ h1 .k {
   color: #ff94f8;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
+
 .r {
   font-size: 1.5em;
   font-weight: bold;
@@ -93,8 +94,8 @@ header a {
   text-decoration: none;
   font-weight: bold;
   color: #ffffff;
-  font-size: 1.1em;
-  margin-right: 15px;
+  font-size: 1.18em;
+  margin-right: 18px;
   margin-top: 4px;
 }
 
@@ -119,8 +120,8 @@ header a:hover {
 
 .Simg {
   height: 93vh;
-  width: auto;
+  width: max-content;
   object-fit: cover;
-  margin-left: -200px;
+  margin-left: -300px;
   z-index: 0;
 }
