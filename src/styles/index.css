@@ -1,0 +1,139 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(90deg, #5c2762, #0f1f39);
+  background-repeat: no-repeat;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+.text {
+  font-size: 3.5em;
+  margin-bottom: -40px;
+  text-align: left;
+  letter-spacing: 0.05em;
+  margin-right: 70px;
+  margin-top: -35px;
+  color: #ffffff;
+  line-height: 1.2;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.k {
+  color: #837bf2;
+  text-decoration: none;
+  text-shadow: 8px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.k:hover {
+  cursor: auto;
+}
+
+.ia {
+  color: #ff94f8;
+  font-size: 78px;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.r {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 10px 42px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  color: white;
+  background: linear-gradient(90deg, #c44dcd, #7c70f8);
+  margin-top: 20px;
+  text-align: center;
+}
+
+.i {
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 7px 30px;
+  border-radius: 15px;
+  border: 1px solid #000000;
+  color: #ffffff;
+  background: linear-gradient(90deg, #c44dcd, #7c70f8);
+  box-shadow: 2px 2px 2px rgba(81, 80, 80, 0.5);
+}
+
+.r:hover {
+  cursor: pointer;
+}
+
+.i:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.container {
+  margin: auto;
+}
+
+header {
+  background-color: #000000;
+}
+
+header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  text-align: center;
+}
+
+header nav {
+  padding: 10px 42px;
+}
+
+header a {
+  padding: 5px 12px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 1.18em;
+  margin-right: 18px;
+  margin-top: 4px;
+}
+
+header a:hover {
+  color: #ff94f8;
+}
+
+#hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1;
+  margin-left: 0;
+  max-width: 800px;
+  margin-left: -380px;
+}
+
+.Simg {
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  height: auto;
+  max-height: calc(100vh - 60px);
+  object-fit: contain;
+  z-index: 0;
+}
