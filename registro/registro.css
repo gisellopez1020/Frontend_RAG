@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background:url('img/espartano.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+  }
+  .container2{
+    position: relative;
+    width: 450px;
+    height: 550px;
+    background: hsla(0, 14%, 99%, 0.404);
+    color: #fff;
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 0 68px  #0F1F39;
+    border-radius: 30px;
+    background-size: cover;
+    z-index: 1;
+  }
+
+  .container2 .form-box2{
+    position: absolute;
+    top: 0;
+    width: 105%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .form-box2 h1 {
+   font-size: 27px;
+   width: 54%;
+   margin-top: -50px;
+   color: #ffffff;
+   outline: none;
+   border-radius: 35px ;
+   background: linear-gradient(to right, #C44DCD, #7C70F8); 
+   text-align: center;
+   margin-left: 90px;
+   padding: 6px 18px;
+   border: 2px solid #ffffff;
+  }
+
+  .form-box2 .inputbox{
+    position: relative;
+    width: 78%;
+    height: 50px;
+    margin: 25px ;
+
+  }
+  .inputbox input{
+    width: 89%;
+    height:80%;
+    background: white;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 9px hsla(0, 20%, 1%, 0.425);
+    border-radius: 35px;
+    font-size: 16px;
+    margin-left: 13px;
+    padding: 20px 45px 20px 20px;
+  }
+  input::placeholder {
+    color: #C3BFBF;
+  }
+  .inputbox label{
+    margin: 20px ;
+  }
+  .inputbox-iniciar2 button {
+    background: linear-gradient(90deg, #C44DCD, #7C70F8);  
+    color: white; 
+    border: 2px solid #ffffff;
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); 
+    outline: none; 
+    transition: background 0.3s ease;
+    display: inline-block; 
+    text-align: center; 
+    text-decoration: none; 
+    margin-left: 65px;
+    margin-top: 25px;
+    width: 54%;
+    height:10%;
+}
+
+.inputbox-iniciar2 button:hover {
+    background: linear-gradient(90deg, #d94fff, #6fa2ff); 
+}
+.inputbox-iniciar2 button a {
+    color: white; 
+    text-decoration: none;
+    display: block; 
+    width: 100%;
+    height: 100%; 
+    line-height: 1.2; 
+}
+ .acep {
+   display: flex;
+   color: #383535;
+   justify-content: center;
+   font-size: 14.5px;
+   margin-right: 29px;
+   margin-top: 28px;
+   text-decoration: underline;
+  }
+  .form-box2{
+    margin: 40px 0 17px;
+  }
+  .oauth-options {
+    text-align: center;
+    margin-top: 28px;
+    margin-left: 45px;
+    width: 54%;
+  }
+  
+  .google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    color: rgb(0, 0, 0);
+    border: 2px solid #8b8b8b;
+    border-radius: 25px;
+    padding: 10px 110px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    outline: none;
+    width: 100%;
+  }
+  
+  .google-btn:hover {
+    background: rgb(209, 207, 207);
+  }
+  
+  .google-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+  }
+  
+  .btn-text {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    white-space: nowrap;
+  }
