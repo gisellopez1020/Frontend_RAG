@@ -25,10 +25,10 @@ body {
     position: relative;
     width: 680px;
     height: 450px;
-    background: hsla(0, 14%, 99%, 0.404);
+    background: hsla(0, 2%, 35%, 0.342);
     color: #fff;
     border: 1px solid rgb(0, 0, 0);
-    box-shadow: 0 0 68px  #0F1F39;
+    box-shadow: 0 0 26px  #000000;
     border-radius: 30px;
     background-size: cover;
     z-index: 1;
@@ -112,15 +112,6 @@ body {
     height: 100%; 
     line-height: 1.2; 
 }
- .acep {
-   display: flex;
-   color: #383535;
-   justify-content: center;
-   font-size: 14.5px;
-   margin-right: 29px;
-   margin-top: 28px;
-   text-decoration: underline;
-  }
   .form-box{
     margin: 40px 0 17px;
   }
@@ -137,7 +128,7 @@ body {
     border-radius: 30px;
     z-index: 2;
     background-size: cover;
-    box-shadow: -15px 0px 0 hsla(0, 0%, 89%, 0.60); 
+    box-shadow: -15px 0px 0 hsla(0, 0%, 75%, 0.6); 
     width: 370px;
     height: 450px;
     display: flex; 
@@ -187,15 +178,21 @@ body {
     margin-top: 46px;
 }
 .contra {
-    margin-top: 50px;
+  display: flex;
+  color: #ffffffc9;
+  justify-content: center;
+  font-size: 14.5px;
+  margin-right: 29px;
+  margin-top: 28px;
+  text-decoration: underline;
 }
 
   .forgot-password {
-    color: #7D7D7D;
+    color: #bfbcce;
  }
  
  .forgot-password:hover {
-    color: #00000091; 
+    color: #7c7a9cc9; 
  }
 .circle img {
     width: 100%;
