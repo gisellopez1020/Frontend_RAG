@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("/public/assets/espartano.jpg") no-repeat;
+  background: url("/public/assets/espartano.jpeg") no-repeat;
   background-size: cover;
   background-position: center;
 }
