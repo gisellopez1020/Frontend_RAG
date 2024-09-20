@@ -3,13 +3,19 @@ body {
   background: linear-gradient(90deg, #f5d7fd, #ffffff);
   margin: 0;
   font-family: "Roboto", sans-serif;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 2em;
   margin-bottom: 10px;
   text-align: left;
   letter-spacing: 0.05em;
@@ -28,6 +34,8 @@ h1 {
 header {
   background-color: #000000;
   height: 60px;
+  flex-shrink: 0;
+  margin-bottom: 30px;
 }
 
 header nav {
@@ -42,7 +50,7 @@ header a {
   text-decoration: none;
   font-weight: bold;
   color: #ffffff;
-  font-size: 1.05em;
+  font-size: 1em;
   margin-right: 10px;
   margin-top: 4px;
   transition: all 0.3s;
@@ -55,10 +63,19 @@ header a:hover {
 
 #hero {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-wrap: nowrap;
+  align-items: stretch;
   justify-content: center;
-  padding: 20px;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.inform,
+.container2 {
+  flex: 1;
+  overflow-y: auto;
+  margin: 10px;
+  max-height: calc(100vh - 80px);
 }
 
 .inform {
@@ -66,29 +83,26 @@ header a:hover {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  width: 90%;
-  max-width: 400px;
-  height: auto;
-  max-height: 695px;
-  box-shadow: 4px 4px 4px 5px rgba(87, 87, 87, 0.5);
+  width: 45%;
+  min-width: 300px;
+  max-width: 800px;
+  box-shadow: 4px 4px 4px 0px rgba(87, 87, 87, 0.5);
   background: hsla(0, 0%, 100%, 0.377);
   border: 1px solid #1f1e1e;
   border-radius: 28px;
-  margin: 20px;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding: 20px;
+  height: 76%;
+  overflow-x: hidden;
 }
 
 .inform h2 {
-  font-size: 1.8em;
+  font-size: 1.6em;
   margin-bottom: 5px;
 }
 
 .inform h3,
 .inform .redes {
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 hr {
@@ -102,10 +116,10 @@ h5 {
 }
 
 .c {
-  font-size: 1em;
+  font-size: 0.9em;
   cursor: pointer;
   font-weight: bold;
-  padding: 7px 20px;
+  padding: 7px 15px;
   border-radius: 15px;
   border: 1px solid #000000;
   color: #ffffff;
@@ -120,25 +134,26 @@ h5 {
 .slogo {
   margin-left: 10px;
   padding-top: 3px;
-  height: 50px;
+  height: 40px;
   width: auto;
 }
 
 .container2 {
-  width: 100%;
+  width: 90%;
   max-width: 600px;
+  margin-left: 0px;
 }
 
 .datos {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
-  box-shadow: 4px 3px 4px 3px rgba(87, 87, 87, 0.5);
+  gap: 15px;
+  box-shadow: 4px 3px 4px 1px rgba(87, 87, 87, 0.5);
   background: linear-gradient(to right, #5c2762, #0f1f39);
-  height: auto;
   border-radius: 28px;
-  margin-left: 50px;
-  padding: 20px;
+  padding: 15px;
+  height: 80%;
+  margin-left: 0px;
 }
 
 .infper,
@@ -148,7 +163,7 @@ h5 {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   align-content: center;
-  padding: 20px;
+  padding: 15px;
 }
 
 .infper .input-grid {
@@ -161,48 +176,46 @@ h5 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2em;
+  font-size: 1.1em;
   margin-top: 0;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: #ffff;
 }
 
 .container2 h2 img {
   margin-left: 10px;
-  height: 30px;
+  height: 25px;
   width: auto;
 }
 
 input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 8px 4px;
+  margin-bottom: 10px;
   border: none;
   border-radius: 15px;
   background-color: #ebebeb;
   color: #333;
   box-shadow: 2px 2px 2px rgba(32, 32, 32, 0.5);
   border: 1px solid #4f4e4e;
-  font-size: 15px;
-  display: inline-block;
-  padding: 10px 4px;
+  font-size: 14px;
 }
 
 input::placeholder {
   color: #b9b9b9;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 input[type="button"] {
   background-color: #83378e;
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 8px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 15px 2px;
+  font-size: 14px;
+  margin: 10px 2px;
   cursor: pointer;
   border-radius: 15px;
   box-shadow: 2px 2px 2px rgba(18, 18, 18, 0.5);
@@ -215,8 +228,8 @@ input[type="button"]:hover {
 }
 
 .profile-pic {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -224,8 +237,8 @@ input[type="button"]:hover {
   background-color: #d9d9d9;
   overflow: hidden;
   position: relative;
-  border: 9px solid #904191;
-  margin-bottom: 20px;
+  border: 7px solid #904191;
+  margin-bottom: 15px;
 }
 
 .profile-pic img {
@@ -260,10 +273,6 @@ input[type="button"]:hover {
 
   .inform,
   .container2 {
-    margin: 20px 10px;
-  }
-
-  .datos {
-    height: 700px;
+    margin: 10px;
   }
 }
