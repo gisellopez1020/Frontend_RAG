@@ -1,62 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spartans AI_login1</title>
-    <link rel="stylesheet" href="../src/styles/Login.css" />
-  </head>
-  <body>
-    <section>
-      <div class="container">
-        <div class="form-box">
-          <h1>Login</h1>
-          <form action="#">
-            <div class="inputbox">
-              <label for="">Usuario</label>
-              <input type="text" placeholder="Usuario" id="usuario" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Sign Up Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/src/styles/Login.css">
+</head>
+<body>
+  <div class="container">
+    <div class="image-container">
+      <img src="/public/assets/espartano.jpeg" alt="Nature Image">
+      <div class="overlay"></div>
+  </div>
+  <button id="toggle-btn">Sign Up</button>
+  
+    <div class="form-container">
+        <div class="login-form">
+            <h2 id="form-title">Login</h2>
+            <form id="auth-form">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div id="extra-options" class="options">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <div class="social-login">
+                <p>or login with</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-google"></i></a>
+                </div>
             </div>
-            <div class="inputbox">
-              <label for="">Contraseña</label>
-              <input type="password" placeholder="Contraseña" id="contraseña" />
-            </div>
-            <div class="contra">
-              <label class="recordar">
-                <a href="#" class="forgot-password"
-                  >¿Olvidaste tú contraseña?</a
-                >
-              </label>
-            </div>
-            <div class="inputbox-iniciar">
-              <button><a href="#"></a>Ingresar</button>
-            </div>
-            <div class="oauth-options">
-              <button type="button" class="google-btn">
-                <img
-                  src="./assets/google.png"
-                  alt="Google Logo"
-                  class="google-icon"
-                />
-                <span class="btn-text">Continuar con Google</span>
-              </button>
-            </div>
-          </form>
         </div>
-        <div class="container2">
-          <div class="circle">
-            <img
-              id="profile-image"
-              src="./assets/logo.png"
-              alt="Imagen en círculo"
-            />
-          </div>
-          <!--<input type="file" id="upload-image" accept="image/*"> para añadir imagen si se va a realizar-->
-          <div class="Registrarse">
-            <p>¿Aun no tienes cuenta?</p>
-            <a href="registro.html"><button>Registrarse</button></a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </body>
+        
+    </div>
+    <div class="image-container2">
+        <img src="/public/assets/espartano.jpeg" alt="Nature Image">
+        <div class="overlay2"></div>
+    </div>
+</div>
+    <script src="/src/components/login.js"></script>
+</body>
 </html>
