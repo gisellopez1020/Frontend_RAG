@@ -203,9 +203,15 @@ input::placeholder {
 .move-left {
   animation: move-left 0.5s forwards;
 }
-.btn2 button{
-  width: 100%;
-  padding: 12px;
+.btn2 {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin-top: 20px; 
+}
+.btn2 a{
+  width: 60%;
+  padding: 11px 60px;
   background: linear-gradient(to right, #c44dcd, #7c70f8);
   color: white;
   border: none;
@@ -215,19 +221,20 @@ input::placeholder {
   transition: background-color 0.3s, transform 0.2s ease;
   display: inline-block;
   text-decoration: none;
-
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  min-width: 50px; /* Fija un ancho mínimo para el botón */
 }
 .btn1 button:hover {
   background: linear-gradient(to right, #ca6ad1, #8a7ffa);
   transform: scale(0.95);
 }
 
-.btn2 button:hover {
+.btn2 a:hover {
   transform: scale(0.95); /* Simula el hundimiento al reducir el tamaño ligeramente */
   background: linear-gradient(to right, #ca6ad1, #8a7ffa);
 
 }
-.btn2 button:active {
+.btn2 a:active {
   transform: scale(0.9); /* Hundimiento más pronunciado al hacer clic */
 }
 
