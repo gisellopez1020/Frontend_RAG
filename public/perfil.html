@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SpartansAI/profile</title>
     <link rel="stylesheet" href="../src/styles/perfil.css" />
-    <script src="../src/components/perfil.js"></script>
   </head>
   <body>
     <header>
@@ -20,7 +19,7 @@
         <nav>
           <a href="">Capabilities</a>
           <a href="">About us</a>
-          <a class="inc" href="">
+          <a class="inc" href="./chat.html">
             <button class="c">Chat</button>
           </a>
         </nav>
@@ -30,13 +29,17 @@
       <div class="boton">
         <div class="inform" id="informacion">
           <div class="profile-pic-container">
+            <!-- Input para cargar imagen -->
+            <input type="file" id="profile-pic-input" accept="image/*" style="display:none;" />          
             <label for="profile-pic-input">
               <div class="profile-pic">
-                <img src="./assets/prf.png" id="profile-pic" alt="Profile Picture" />
+                <!-- Cambiar el id de la imagen -->
+                <img src="./assets/prf.png" id="profile-pic-img" alt="Profile Picture" />
               </div>
               <button class="overlay-button2" id="open2">+</button>
             </label>
           </div>
+          
           <h2>User</h2>
           <h3>Descripción</h3>
           <input type="text" placeholder="Un poco sobre ti..." />
@@ -112,4 +115,5 @@
       </div>
     </section>
   </body>
+  <script src="../src/components/perfil.js"></script>
 </html>
