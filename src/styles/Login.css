@@ -5,17 +5,15 @@
   font-family: "Inter", sans-serif;
 }
 
-
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(to right, #c44dcd, #7c70f8);
+  background: url("/public/assets/fondo0.avif") no-repeat;
   background-size: cover;
   background-position: center;
 }
-
 
 .container {
   position: relative;
@@ -23,7 +21,7 @@ body {
   max-width: 1000px;
   height: 600px;
   display: flex;
-  box-shadow: 20px 20px 20px rgba(73, 45, 90, 0.698);
+  box-shadow: 0 0 15px 10px rgba(131, 122, 140, 0.698);
   border-radius: 10px;
   background-size: cover;
   overflow: hidden;
@@ -53,7 +51,6 @@ body {
   transition: transform 0.8s ease, opacity 0.8s ease;
 }
 
-
 .image-container img {
   width: 100%;
   height: 100%;
@@ -61,13 +58,11 @@ body {
   transition: transform 0.6s ease-in-out, opacity 0.8s ease;
 }
 
-
 /* Asegurando que la imagen desaparezca en la vista de Login */
 .image-container.hidden {
   transform: translateX(100%); /* Se desplaza fuera de la pantalla */
   opacity: 0; /* La imagen desaparece gradualmente */
 }
-
 
 /* Mostrar imagen en la vista de Sign Up */
 .image-container2.visible {
@@ -79,53 +74,51 @@ body {
   opacity: 0; /* La imagen desaparece gradualmente */
 }
 
-
 /* Mostrar imagen en la vista de Sign Up */
 .image-container.visible {
   transform: translateX(0); /* Imagen vuelve a su lugar */
   opacity: 1; /* Imagen completamente visible */
 }
 
-
 /* Estilos para las transiciones del formulario */
 .form-container.slide-right {
   transform: translateX(100%);
 }
-
 
 .form-container.slide-left {
   transform: translateX(-100%);
 }
 
 .form-container {
-  background-color: #b7cbf7;
+  background-color: #ffffff;
   width: 50%;
   padding: 50px;
   display: flex;
-    transition: transform 0.5s ease-in-out; /* Transición más rápida para el formulario */
+  transition: transform 0.5s ease-in-out; /* Transición más rápida para el formulario */
 }
-
 
 .login-form {
-  color: white;
   max-width: 300px;
   margin: 0 auto;
-  z-index: 2; 
+  margin-top: 50px;
 }
-
 
 .login-form h2 {
-  font-size: 2em;
+  font-size: 3em;
   margin-bottom: 20px;
   text-align: center;
-}
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace; 
+  font-size: 60px; 
+  color: rgb(175, 107, 216);
+  text-shadow: -1px 0 1px #000000, 0 1px 1px #000000, 1px 0 1px #000000, 0 -1px 1px #000000, -2px 2px 2px #000000, 2px 2px 2px #000000, 1px 1px 1px #000000, 2px 2px 2px #000000, 3px 3px 3px #000000, 4px 4px #414D68, 5px 5px #414D68,6px 6px #414D68, 7px 7px #414D68, 8px 8px #414D68, 9px 9px #414D68;
 
+}
 
 .input-group {
   position: relative;
   margin-bottom: 20px;
 }
-
 
 .input-group i {
   position: absolute;
@@ -135,42 +128,59 @@ body {
   color: #000000;
 }
 
-
 .input-group input {
   width: 100%;
   padding: 10px 15px 10px 45px;
   border: none;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+  background-color: rgba(176, 176, 176, 0.303);
+  color: rgb(0, 0, 0);
   border-radius: 5px;
   font-size: 16px;
   transition: background-color 0.3s;
 }
-
 
 .input-group input:focus {
   background-color: rgba(255, 255, 255, 0.2);
   outline: none;
 }
 
-
 .options {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   font-size: 0.9em;
   margin-bottom: 20px;
+  gap: 18px;
+  font-size: 12px;
 }
-
 
 .options a {
-  color: #4CAF50;
-  text-decoration: none;
+  color: #161d7d;
+  
+}
+.options a:hover {
+  transform: scale(0.95); /* Simula el hundimiento al reducir el tamaño ligeramente */
 }
 
+@keyframes move-right {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0); /* Mover 100px a la derecha */
+  }
+}
 
-button {
-  width: 100%;
+@keyframes move-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%); /* Volver a la posición original */
+  }
+}
+
+.btn1 button{
+  width: 11%;
   padding: 12px;
   background: linear-gradient(to right, #c44dcd, #7c70f8);
   color: white;
@@ -178,38 +188,68 @@ button {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  margin-right: 48%;
+  margin-top: -20px;
+  position: relative; /* Necesario para la animación */
 }
 
-
-
-button:hover {
-  background-color: #45a049;
+.move-right {
+  animation: move-right 0.5s forwards;
+}
+input::placeholder {
+  color: #8a8a8a;
 }
 
+.move-left {
+  animation: move-left 0.5s forwards;
+}
+.btn2 button{
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #c44dcd, #7c70f8);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease;
+  display: inline-block;
+  text-decoration: none;
+
+}
+.btn1 button:hover {
+  background: linear-gradient(to right, #ca6ad1, #8a7ffa);
+  transform: scale(0.95);
+}
+
+.btn2 button:hover {
+  transform: scale(0.95); /* Simula el hundimiento al reducir el tamaño ligeramente */
+  background: linear-gradient(to right, #ca6ad1, #8a7ffa);
+
+}
+.btn2 button:active {
+  transform: scale(0.9); /* Hundimiento más pronunciado al hacer clic */
+}
 
 .social-login {
   text-align: center;
   margin-top: 20px;
 }
 
-
 .social-login p {
   margin-bottom: 10px;
 }
-
 
 .social-icons {
   display: flex;
   justify-content: center;
 }
 
-
 .social-icons a {
   color: white;
-  background-color: rgba(255, 255, 255, 0.1);
-  width: 40px;
-  height: 40px;
+  background: linear-gradient(to right, #ca6ad1, #8a7ffa);
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -218,12 +258,14 @@ button:hover {
   transition: background-color 0.3s;
 }
 
-
 .social-icons a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(0.95); /* Simula el hundimiento al reducir el tamaño ligeramente */
+  background: linear-gradient(to right, #c08bc4, #a49df1);
+
 }
-
-
+.social-icons a:active {
+  transform: scale(0.9); /* Hundimiento más pronunciado al hacer clic */
+}
 #toggle-btn {
   position: absolute;
   top: 20px;
@@ -234,24 +276,19 @@ button:hover {
   border: 2px solid white;
   cursor: pointer;
   z-index: 2;
+  transition: background-color 0.3s, transform 0.2s ease;
+  display: flex;
+  align-items: center; 
+  gap: 10px; /* Espacio entre el texto y el icono */
 }
-
-
-#toggle-btn:hover {
-  background-color: white;
-  color: #0B0F08;
-}
-
 
 .form-container.slide-right {
   transform: translateX(0);
 }
 
-
 .form-container.slide-left {
   transform: translateX(-100%);
 }
-
 
 .image-container img.zoom-in {
   transform: scale(1.1);

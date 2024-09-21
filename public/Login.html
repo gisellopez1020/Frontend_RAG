@@ -10,45 +10,60 @@
 <body>
   <div class="container">
     <div class="image-container">
-      <img src="/public/assets/espartano.jpeg" alt="Nature Image">
+      <img src="/public/assets/spartan.png" alt="Nature Image">
       <div class="overlay"></div>
-  </div>
-  <button id="toggle-btn">Sign Up</button>
-  
+    </div>
+    <div class="btn1">
+      <button id="toggle-btn">Sign Up</button>
+    </div>
     <div class="form-container">
         <div class="login-form">
             <h2 id="form-title">Login</h2>
             <form id="auth-form">
                 <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Usuario" required>
+                </div>
+
+                <div class="input-group" id="email-field" style="display: none;">
                     <i class="fas fa-envelope"></i>
                     <input type="email" id="email" placeholder="Email" required>
                 </div>
+
                 <div class="input-group">
                     <i class="fas fa-lock"></i>
-                    <input type="password" id="password" placeholder="Password" required>
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                </div>
+
+                <div class="input-group" id="confirm-password-field" style="display: none;">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="confirm-password" placeholder="Confirmar Contraseña" required>
                 </div>
                 <div id="extra-options" class="options">
                     <label>
-                        <input type="checkbox"> Remember me
+                        <input type="checkbox"> Terminos y condiciones
                     </label>
-                    <a href="#">Forgot password?</a>
+                    <a href="#">¿Olvidaste tu contraseña?</a>
                 </div>
-                <button type="submit">Login</button>
+
+                <div class="btn2">
+                    <a class="inc" href="../login1/Login.html">
+                        <button class="i">Login</button>
+                      </a>                
+                    </div>
             </form>
             <div class="social-login">
-                <p>or login with</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-google"></i></a>
                 </div>
             </div>
         </div>
-        
     </div>
     <div class="image-container2">
-        <img src="/public/assets/espartano.jpeg" alt="Nature Image">
+        <img src="/public/assets/spartan.png" alt="Nature Image">
         <div class="overlay2"></div>
     </div>
-</div>
-    <script src="/src/components/login.js"></script>
+  </div>
+  <script src="/src/components/login.js"></script>
 </body>
 </html>
