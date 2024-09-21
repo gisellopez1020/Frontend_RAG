@@ -1,6 +1,8 @@
 html,
 body {
-  background: linear-gradient(90deg, #f5d7fd, #ffffff);
+  background: url("/public/assets/fondo0.avif") no-repeat;
+  background-size: cover;
+  background-position: center;
   margin: 0;
   font-family: "Roboto", sans-serif;
   height: 100vh;
@@ -97,11 +99,12 @@ header a:hover {
 .inform h2 {
   font-size: 1.6em;
   margin-bottom: -10px;
+  color: #ffff;
 }
 
-.inform h3,
-.inform .redes {
+.inform h3 {
   font-size: 1em;
+  color: #ffff;
 }
 
 h5 {
@@ -243,8 +246,7 @@ input[type="button"]:hover {
   border-radius: 50%
 }
 
-
-.overlay-button2{
+.overlay-button2 {
   justify-content: center; /* Centra horizontalmente */
   align-items: center; /* Centra verticalmente */
   color: #904191;
@@ -253,7 +255,7 @@ input[type="button"]:hover {
   font-size: 24px;
   position: absolute;
   bottom: 22px;
-  left: 100px; 
+  left: 100px;
   width: 35px;
   top: 6px;
   height: 35px;
@@ -269,8 +271,6 @@ input[type="button"]:hover {
   transform: scale(1.1);
   color: white;
 }
-
-
 
 @media screen and (min-width: 768px) {
   .datos {
