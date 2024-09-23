@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: url("/public/assets/fondo0.avif") no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2%;
+}
+
+header {
+  background-color: #000000;
+  height: 50px;
+  flex-shrink: 0;
+  position: fixed; /* Fija el menú de navegación */
+  top: 0; /* Se mantendrá en la parte superior */
+  left: 0; /* Alineado al borde izquierdo */
+  width: 100%; /* Ocupa el ancho completo de la ventana */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Añade una sombra para darle un efecto elevado */
+}
+
+header nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.slogo {
+  margin-left: 10px;
+  padding-top: 3px;
+  height: 42px;
+  width: auto;
+}
+
+.c {
+  font-size: 0.9em;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 7px 15px;
+  border-radius: 15px;
+  border: 1px solid #000000;
+  color: #ffffff;
+  background: linear-gradient(90deg, #c44dcd, #7c70f8);
+  box-shadow: 2px 2px 2px rgba(81, 80, 80, 0.5);
+}
+
+.c:hover {
+  background: linear-gradient(90deg, #d94fff, #6fa2ff);
+}
+
+header .about,
+.inc {
+  padding: 5px 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 1em;
+  margin-right: 10px;
+  margin-top: 4px;
+  transition: all 0.3s;
+}
+
+header a:hover {
+  color: #ff94f8;
+  transform: scale(1.08);
+}
+
+section.features {
+  padding: 40px 20px;
+}
+
+.features h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  font-size: 2.5em;
+  background: linear-gradient(90deg, #7c70f8, #ff94f8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Organiza en filas de tres */
+  gap: 20px;
+  max-width: 1200px; /* Ancho máximo para las tarjetas */
+  margin: 0 auto;
+}
+
+.feature {
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature h3 {
+  color: #7468f9;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 3px #9997a5;
+}
+
+.feature p {
+  font-size: 1em;
+  color: #333;
+}
+
+footer {
+  background-color: #7468f9;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  font-size: 0.9em;
+}
