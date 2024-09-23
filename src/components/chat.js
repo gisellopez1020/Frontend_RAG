@@ -1,6 +1,6 @@
 // Referencias a los elementos del DOM
 const nuevoChatBtn = document.getElementById('nuevo-chat-btn');
-const sendBtn = document.getElementById('send-btn');
+const sendBtn = document.getElementById('send-btn2');
 const messageInput = document.getElementById('message-input');
 const chatContainer = document.getElementById('chat-container');
 

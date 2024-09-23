@@ -60,7 +60,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url('/public/assets/espartano.jpeg');
+    background-image: url('/public/assets/fondo0.avif');
     background-size: cover;
     background-position: center;
     padding: 20px;
@@ -77,63 +77,134 @@
 }
 
 .status {
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .status-indicator {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
+    margin-top: -20px;
     background-color: green;
     border-radius: 50%;
-    margin-right: 12px;
+    margin-left: 100px;
     z-index: 1;
 }
 
 .chat-box {
+    position:absolute;
     background-color: hsla(217, 58%, 14%, 0.896);
+    height: 530px;
+    width: 97%;
     border-radius: 15px;
-    padding: 210px;
-    margin-top: -90px;
+    padding: 10px  ;
+    margin-top: -13px;
+    border: 1px solid #ccc;
+    scrollbar-width: 20px; /* Barra delgada */
+    scrollbar-color: #35276b #0F1F39; /* Color de la barra y del fondo */
+}
+.chat-box::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
 }
 
 .message-box {
-    background-color: #366f79;
+    background-color: #00d9ff;
     color: white;
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 20px;
 }
 
+
 .input-area {
     display: flex;
     align-items: center;
     background-color: #0F1F39;
-    padding: 10px;
+    padding: 4px;
+    margin-top: -140px;
+    width:94%;
+    color: #ffffff;
+    text-decoration: none;
     border-radius: 50px;
+}
+
+
+.input-area ::placeholder {
+    background-color: transparent;  
+    text-decoration-color: none;
 }
 
 input[type="text"] {
     flex: 1;
     background-color: transparent;
     border: none;
-    color: white;
     font-size: 16px;
     padding: 10px;
+    outline: none; 
+    color: rgb(178, 177, 177); 
 }
+input::placeholder {
+    flex: 1;
+    background-color: transparent;
+    font-size: 16px;
+    padding-right: 20px}
 
 input[type="text"]::placeholder {
-    color: #aaa;
+    color: #ffffff;
+    background: none; 
+    border: none;
+    text-decoration: none; 
+}
+input[type="text"]:focus {
+    background-color: transparent; 
+    outline: none;
+    border: none;
+
 }
 
 .send-btn {
+    position: absolute;
+    right: 9%;
     width: 40px;
     height: 40px;
-    background-color: #79366a;
+    background-color: #022052;
     border: none;
+    background-size: cover;
+    background-position: center;
     border-radius: 50%;
-    margin-left: 10px;
     cursor: pointer;
+    z-index: 1;
 }
+.send-btn2 {
+    width: 50px;
+    height: 50px;
+    background-color: #022052;
+    border: none;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin-left: 140%;
+    cursor: pointer;
+    margin-top: 0;
+}
+
+ .send-btn i{
+    color: #ffffff;
+    font-size: 20px;
+    position: absolute;
+    margin-top: -9px;
+    right: 25%;
+    z-index: 1;
+    transform: rotate(-45deg);
+ }
+ .send-btn2 i{
+    position: absolute;
+    right: 35px;
+    color: #ffffff;
+    margin-top: -12px;
+    transform: rotate(-1deg);
+    font-size: 23px;
+    z-index: 1;
+ }
 
 .send-btn::after {
     content: "";
@@ -141,9 +212,10 @@ input[type="text"]::placeholder {
     font-size: 16px;
 }
 .message-box {
-    background-color: #473679;
+    background-color: #8571c2;
     color: white;
-    padding: 15px 9 0px;
+    margin-top: 40px;
+    padding: 15px 0;
     border-radius: 10px;
     margin-bottom: 20px;
 }

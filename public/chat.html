@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interfaz de Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/src/styles/chat.css">
 </head>
 <body>
@@ -20,19 +21,27 @@
         </aside>
         <main class="chat-area" >
             <div class="chat-header">
-                <span class="status">En Línea</span>
+                <span class="status">En Línea</spyan>
                 <div class="status-indicator"></div>
             </div>
             <div id="chat-container" class="chat-box">
                 <div class="message-box"></div>
             </div>
+        
             <div class="input-area">
                 <input id="message-input" type="text" placeholder="Escribe tu pregunta aquí..." />
-                <button id="send-btn" class="send-btn"></button>
-            </div>
+                <button id="send-btn" class="send-btn">
+                    <i class="fas fa-paperclip"></i>
+                </button>
+                <div class="btn1">
+                <button id="send-btn2" class="send-btn2">               
+                <i class="fa-solid fa-arrow-up"></i>    
+                </button>
+        </div>
+         
         </main>
     </div>
 
-    <script src="chat.js"></script>
+    <script src="/src/components/chat.js"></script>
 </body>
 </html>
