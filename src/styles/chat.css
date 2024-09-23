@@ -93,7 +93,7 @@
 .chat-box {
     position:absolute;
     background-color: hsla(217, 58%, 14%, 0.896);
-    height: 530px;
+    height: 525px;
     width: 97%;
     border-radius: 15px;
     padding: 10px  ;
@@ -106,20 +106,10 @@
     width: 8px; /* Ancho de la barra de desplazamiento */
 }
 
-.message-box {
-    background-color: #00d9ff;
-    color: white;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-
 .input-area {
     display: flex;
     align-items: center;
     background-color: #0F1F39;
-    padding: 4px;
     margin-top: -140px;
     width:94%;
     color: #ffffff;
@@ -182,7 +172,7 @@ input[type="text"]:focus {
     background-size: cover;
     background-position: center;
     border-radius: 50%;
-    margin-left: 140%;
+    margin-left: 120%;
     cursor: pointer;
     margin-top: 0;
 }
@@ -198,7 +188,7 @@ input[type="text"]:focus {
  }
  .send-btn2 i{
     position: absolute;
-    right: 35px;
+    right: 42px;
     color: #ffffff;
     margin-top: -12px;
     transform: rotate(-1deg);
@@ -215,11 +205,10 @@ input[type="text"]:focus {
     background-color: #8571c2;
     color: white;
     margin-top: 40px;
-    padding: 15px 0;
+    padding: 15px 16px;
     border-radius: 10px;
     margin-bottom: 20px;
 }
-
 .message-box.usuario {
     background-color: #4a90e2;
     align-self: flex-end;
