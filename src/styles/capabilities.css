@@ -94,16 +94,20 @@ section.features {
   text-align: center;
   margin-bottom: 40px;
   margin-top: 20px;
+  font-family: "Courier New", Courier, monospace;
   font-size: 2.5em;
-  background: linear-gradient(90deg, #7c70f8, #ff94f8);
-  color: white;
+  color: rgb(175, 107, 216);
+  text-shadow: -1px 0 1px #000000, 0 1px 1px #000000, 1px 0 1px #000000,
+    0 -1px 1px #000000, -2px 2px 2px #000000, 2px 2px 2px #000000,
+    1px 1px 1px #000000, 2px 2px 2px #000000, 3px 3px 3px #000000,
+    4px 4px #414d68, 5px 5px #414d68, 6px 6px #414d68, 7px 7px #414d68,
+    8px 8px #414d68, 9px 9px #414d68;
   padding: 10px 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   letter-spacing: 2px;
-  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
   font-weight: bold;
-  transition: transform 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.8);
+  max-width: 1270px;
 }
 
 .feature-list {
