@@ -80,58 +80,91 @@ header a:hover {
   width: auto;
 }
 
-section.about-us {
-  padding: 2rem;
+.hero {
+  background-color: rgba(123, 112, 248, 0.858);
+  color: #fff;
+  padding: 100px 20px;
   text-align: center;
 }
 
-section.about-us h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  margin-top: 30px;
+.hero h2 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
   font-family: "Courier New", Courier, monospace;
-  font-size: 2.5em;
-  color: rgb(175, 107, 216);
+  color: rgb(187, 112, 233);
   text-shadow: -1px 0 1px #000000, 0 1px 1px #000000, 1px 0 1px #000000,
     0 -1px 1px #000000, -2px 2px 2px #000000, 2px 2px 2px #000000,
     1px 1px 1px #000000, 2px 2px 2px #000000, 3px 3px 3px #000000,
     4px 4px #414d68, 5px 5px #414d68, 6px 6px #414d68, 7px 7px #414d68,
     8px 8px #414d68, 9px 9px #414d68;
-  padding: 10px 20px;
-  letter-spacing: 2px;
-  border-radius: 10px;
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.8);
-  max-width: 1270px;
 }
 
-section.about-us p {
+.hero p {
   font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.team-section {
+  padding: 50px 20px;
+  background-color: #fff;
+}
+
+.team-section h3 {
+  text-align: center;
+  font-size: 2.5rem;
   margin-bottom: 2rem;
-  font-size: 1.1em;
+  margin-right: 10px;
   color: #333;
 }
 
-.team {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.team ul {
-  list-style-type: none;
+.team-member {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-.team ul li {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.team-member h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.team-member p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.team-member:hover {
+  transform: scale(1.05);
 }
 
 footer {
-  background-color: #7468f9;
+  background-color: #7c70f8;
   color: #fff;
   text-align: center;
-  padding: 1rem;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+footer p {
+  font-size: 1rem;
 }
