@@ -54,10 +54,11 @@ body {
   background: linear-gradient(90deg, #c44dcd, #7c70f8);
   margin-top: 20px;
   text-align: center;
+  transition: all 0.3s;
 }
 
 .i {
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: bold;
   padding: 7px 30px;
   border-radius: 15px;
@@ -65,15 +66,19 @@ body {
   color: #ffffff;
   background: linear-gradient(90deg, #c44dcd, #7c70f8);
   box-shadow: 2px 2px 2px rgba(81, 80, 80, 0.5);
+  transition: all 0.3s;
 }
 
 .r:hover {
   cursor: pointer;
+  transform: scale(1.08);
 }
 
 .i:hover {
   color: white;
   cursor: pointer;
+  background: linear-gradient(90deg, #d94fff, #6fa2ff);
+  transform: scale(1.08);
 }
 
 .container {
@@ -102,12 +107,14 @@ header a {
   font-weight: bold;
   color: #ffffff;
   font-size: 1em;
-  margin-right: 18px;
+  margin-right: 10px;
   margin-top: 4px;
+  transition: all 0.3s;
 }
 
 header a:hover {
   color: #ff94f8;
+  transform: scale(1.08);
 }
 
 #hero {
