@@ -3,6 +3,21 @@ const nuevoChatBtn = document.getElementById('nuevo-chat-btn');
 const sendBtn = document.getElementById('send-btn2');
 const messageInput = document.getElementById('message-input');
 const chatContainer = document.getElementById('chat-container');
+const modoBtn = document.querySelector('.Modo');
+const modal = document.getElementById('modo-modal');
+const closeModal = document.querySelector('.close');
+const lightModeBtn = document.getElementById('light-mode-btn');
+const darkModeBtn = document.getElementById('dark-mode-btn');
+
+// Cargar el estado del tema al iniciar la página
+function cargarTema() {
+    const temaGuardado = localStorage.getItem('tema');
+    if (temaGuardado === 'dark') {
+        document.body.classList.add('dark-theme');
+    } else {
+        document.body.classList.remove('dark-theme');
+    }
+}
 
 // Función para enviar el mensaje del usuario
 function enviarMensaje() {
@@ -71,3 +86,37 @@ function iniciarNuevoChat() {
 
 // Asignar la función al botón de "Nuevo Chat"
 nuevoChatBtn.addEventListener('click', iniciarNuevoChat);
+
+// Abrir el modal al hacer clic en Configuración
+modoBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+});
+
+// Cerrar el modal
+closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// Cambiar a modo claro
+lightModeBtn.addEventListener('click', () => {
+    document.body.classList.remove('dark-theme');
+    localStorage.setItem('tema', 'light'); // Guardar el tema claro
+    modal.style.display = 'none'; // Cerrar modal
+});
+
+// Cambiar a modo oscuro
+darkModeBtn.addEventListener('click', () => {
+    document.body.classList.add('dark-theme');
+    localStorage.setItem('tema', 'dark'); // Guardar el tema oscuro
+    modal.style.display = 'none'; // Cerrar modal
+});
+
+// Cerrar el modal si se hace clic fuera de él
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+// Cargar el tema al iniciar la página
+cargarTema();

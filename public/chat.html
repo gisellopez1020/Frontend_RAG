@@ -16,7 +16,8 @@
             <nav class="menu">
                 <button id="nuevo-chat-btn" class="btn nuevo-chat">Nuevo Chat</button>
                 <button class="btn historial">Historial</button>
-                <button class="btn configuracion">Configuración</button>
+                <button class="btn perfil">Perfil</button>
+                <button class="btn Modo">Modo</button>
             </nav>
         </aside>
         <main class="chat-area" >
@@ -41,7 +42,18 @@
         </div>
         </main>
     </div>
+    <!--ventana emergente-->
 
+    <div id="modo-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tema</h2>
+            <div class="theme-options">
+                <button id="light-mode-btn">Modo Claro</button>
+                <button id="dark-mode-btn">Modo Oscuro</button>
+            </div>
+        </div>
+    </div>
     <script src="/src/components/chat.js"></script>
 </body>
 </html>
