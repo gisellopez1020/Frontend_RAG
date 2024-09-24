@@ -121,14 +121,17 @@ header a:hover {
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
+  gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+.team-grid .email {
+  color: #c44dcd;
+}
 .team-member {
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: #f9f8f8;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
