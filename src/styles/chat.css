@@ -5,17 +5,23 @@
     font-family: "Inter", sans-serif;
 }
 
+
 :root {
-    --background-color:width;
     --background-sidebar:#ffffff;
-    --text-color: white;
-    --button-background:#aa7dbd;
-    --button-text: white;
-    --chat-area-bg:#aa7dbd;
-    --input-area-bg: hsla(217, 58%, 14%, 0.896);
-    --input-text-color: white;
-    --send-btn-bg:#022052;
-    --chat-container-color:#35276b #0F1F39;
+    --text-color: hsla(0, 0%, 100%, 0.896);
+    --button-background:#bc78e4;
+    --color-hover:rgb(255, 255, 255);
+    --img: url('/public/assets/fondo00.avif');
+    --button-hover:rgb(182, 108, 182);
+    --button-text: rgb(255, 255, 255);
+    --chat-area-bg:hsla(0, 0%, 97%, 0.774);
+    --input-area-bg: #ffffff;
+    --input-text-color: rgb(2, 2, 2);
+    --send-btn-bg:#bd9ec0;
+    --chat-container-color:#a17fa8;
+    --send-btn2-color:#bd9ec0;
+    --send-btn-hover:rgb(182, 108, 182);
+
 }
 
 body {
@@ -31,6 +37,7 @@ body {
     width: 250px;
     background-color: var(--background-sidebar);
     padding: 20px;
+
 }
 
 .container .circle {
@@ -68,10 +75,9 @@ body {
     cursor: pointer;
     text-align: left;
 }
-
 .btn:hover {
-    background-color: var(--button-text);
-    color: var(--button-background);
+    background-color: var(--button-hover);
+    color: var(--color-hover);
 }
 
 .chat-area {
@@ -79,7 +85,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url('/public/assets/fondo0.avif');
+    background-image:var(--img);
     background-size: cover;
     background-position: center;
     padding: 20px;
@@ -96,7 +102,7 @@ body {
 }
 
 #chat-container {
-    height: 500px; /* Mantiene un tamaño fijo para el contenedor de chat */
+    height: 500px; 
     overflow-y: auto; 
     overflow-x: hidden; /* Evita el desbordamiento horizontal */
     padding: 10px; 
@@ -121,7 +127,7 @@ body {
     width: 20px;
     height: 20px;
     margin-top: -20px;
-    background-color: green;
+    background-color: rgb(4, 139, 4);
     border-radius: 50%;
     margin-left: 100px;
     z-index: 1;
@@ -187,12 +193,21 @@ input[type="text"]:focus {
 .send-btn2 {
     width: 50px;
     height: 50px;
-    background-color: #022052;
+    background-color:var(--send-btn2-color);
     border: none;
     border-radius: 50%;
     margin-left: 120%;
     cursor: pointer;
 }
+.send-btn:hover{
+    background-color: var(--send-btn-hover);
+    color: white;   
+}
+.send-btn2:hover{
+    background-color: var(--send-btn-hover);
+    color: white;   
+}
+
 
 .send-btn i {
     color: #ffffff;
@@ -275,12 +290,10 @@ input[type="text"]:focus {
 
 /* Botones de tema */
 .theme-options button {
-    margin: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+   border: 2px solid black;
+
 }
+
 
 #light-mode-btn {
     background-color: #e0e0e0;
@@ -294,27 +307,36 @@ input[type="text"]:focus {
 /* Modos */
 /* Modo Claro */
 .light-mode {
-    --background-sidebar:#0F1F39;
-    --text-color: width;
-    --button-background: #f0f0f0;
-    --button-text: white;
-    --chat-area-bg: #f8f9fa;
-    --chat-header-bg: #e2e3e5;
-    --input-area-bg: #f0f0f0;
-    --input-text-color: white;
-    --send-btn-bg: white;
-    --background-sidebar:#0F1F39;
+    --background-sidebar:#ffffff;
+    --text-color: hsla(0, 0%, 100%, 0.896);
+    --button-background:#bc78e4;
+    --color-hover:rgb(255, 255, 255);
+    --img: url('/public/assets/fondo03.avif');
+    --button-hover:rgb(182, 108, 182);
+    --button-text: rgb(255, 255, 255);
+    --chat-area-bg:hsla(0, 0%, 100%, 0.452);
+    --input-area-bg: #ffffff;
+    --input-text-color: rgb(2, 2, 2);
+    --send-btn-bg:#bd9ec0;
+    --chat-container-color:#a17fa8 #dbb5ec;
+    --send-btn2-color:#bd9ec0;
+    --send-btn-hover:rgb(182, 108, 182);
 }
 
 /* Modo Oscuro */
 .dark-theme {
     --background-sidebar:#0F1F39;
     --text-color: white;
-    --button-background:#593668;
+    --img: url('/public/assets/fondo0.avif');
+    --button-background:#3E1F42;
+    --color-hover:rgb(255, 255, 255);
+    --button-hover:#562a5c;
     --button-text: white;
     --chat-area-bg: hsla(217, 58%, 14%, 0.896);
     --input-area-bg: hsla(217, 58%, 14%, 0.896);
     --input-text-color: white;
     --send-btn-bg:#022052;
     --chat-container-color:#35276b #0F1F39;
+    --send-btn2-color:#022052;
+    --send-btn-hover:#0d2c63;
 }

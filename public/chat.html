@@ -16,8 +16,10 @@
             <nav class="menu">
                 <button id="nuevo-chat-btn" class="btn nuevo-chat">Nuevo Chat</button>
                 <button class="btn historial">Historial</button>
-                <button class="btn perfil">Perfil</button>
-                <button class="btn Modo">Modo</button>
+                <button class="btn Modo">configuraciones</button>
+                <a class="inc" style="color: white;" href="./perfil.html">
+                    <button class="btn perfil">Perfil</button>
+                    </a>
             </nav>
         </aside>
         <main class="chat-area" >
@@ -47,13 +49,21 @@
     <div id="modo-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Tema</h2>
+            <h2 style="color: black;">configuraciones</h2>
             <div class="theme-options">
-                <button id="light-mode-btn">Modo Claro</button>
-                <button id="dark-mode-btn">Modo Oscuro</button>
+                <button id="light-mode-btn">Modo Claro 
+                <ion-icon name="sunny"></ion-icon></button>
+
+                <button id="dark-mode-btn">Modo Oscuro 
+                 <ion-icon name="moon"></ion-icon></button>
+                 <button id="idioma">Idioma</button>
+                 <button></button>
+                </div>
             </div>
         </div>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/src/components/chat.js"></script>
 </body>
 </html>
