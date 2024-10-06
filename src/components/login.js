@@ -8,10 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const toggleButton = document.getElementById("toggle-btn");
   const extraOptions = document.getElementById("extra-options");
   const socialLogin = document.querySelector(".social-login");
-  const emailField = document.getElementById("email-field");
-  const confirmPasswordField = document.getElementById(
-    "confirm-password-field"
-  );
+  const email = document.getElementById("email-field");
+  const confirmPassword = document.getElementById("confirm-password-field");
   let isLogin = true;
 
   function showError(inputElement, message) {
@@ -66,8 +64,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  async function registerUser(username, email, password) {
-    const url = "http://localhost:8001/save-user/"; // URL del endpoint de tu backend
+  async function registerUser(username, email, password, confirmPassword) {
+    const url = "http://localhost:8001/save-user/";
 
     try {
       const response = await fetch(url, {
@@ -79,11 +77,15 @@ document.addEventListener("DOMContentLoaded", function () {
           name: username,
           email: email,
           password: password,
+          confirmPassword: confirmPassword,
         }),
       });
 
       if (!response.ok) {
-        throw new Error("Error en el registro");
+        const errorData = await response.json(); // Obtener detalles del error
+        console.error("Error en el registro:", errorData);
+        alert(`Registro fallido: ${errorData.detail || "Error desconocido"}`);
+        return null;
       }
 
       const data = await response.json();
@@ -92,7 +94,10 @@ document.addEventListener("DOMContentLoaded", function () {
       return data;
     } catch (error) {
       console.error("Error:", error.message);
-      alert("Registro fallido. Verifique sus datos.");
+      alert(
+        "Error en el registro. Verifique su conexión o intente nuevamente."
+      );
+      return null;
     }
   }
 
@@ -144,8 +149,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(() => {
       formTitle.innerText = "Login";
-      emailField.style.display = "none";
-      confirmPasswordField.style.display = "none";
+      email.style.display = "none";
+      confirmPassword.style.display = "none";
       extraOptions.style.display = "flex";
       socialLogin.style.display = "block";
       submitLink.innerText = "Login";
@@ -205,16 +210,16 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       if (isLogin) {
         formTitle.innerText = "Sign Up";
-        emailField.style.display = "block";
-        confirmPasswordField.style.display = "block";
+        email.style.display = "block";
+        confirmPassword.style.display = "block";
         extraOptions.style.display = "none";
         socialLogin.style.display = "block";
         submitLink.innerText = "Sign Up";
         toggleButton.innerHTML = 'Login <i class="fas fa-arrow-right"></i>';
       } else {
         formTitle.innerText = "Login";
-        emailField.style.display = "none";
-        confirmPasswordField.style.display = "none";
+        email.style.display = "none";
+        confirmPassword.style.display = "none";
         extraOptions.style.display = "flex";
         socialLogin.style.display = "block";
         submitLink.innerText = "Login";
