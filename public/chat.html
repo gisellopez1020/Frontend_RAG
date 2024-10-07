@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interfaz de Chat</title>
+    <title data-es="Interfaz de Chat" data-en="Chat Interface">Interfaz de Chat</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/src/styles/chat.css">
 </head>
@@ -11,59 +11,77 @@
     <div class="container">
         <aside class="sidebar">
             <div class="circle">
-                    <img id="profile-image" src="assets/spartan.png" alt="Imagen en círculo">
-                </div>
+                <img id="profile-image" src="assets/spartan.png" alt="Imagen en círculo">
+            </div>
             <nav class="menu">
-                <button id="nuevo-chat-btn" class="btn nuevo-chat">Nuevo Chat</button>
-                <button class="btn historial">Historial</button>
-                <button class="btn Modo">configuraciones</button>
+                <button id="nuevo-chat-btn" class="btn nuevo-chat translate" data-es="Nuevo Chat" data-en="New Chat">Nuevo Chat</button>
+                <button class="btn historial translate" data-es="Historial" data-en="History">Historial</button>
+                <button class="btn Modo translate" id="config-btn" data-es="Configuraciones" data-en="Settings">Configuraciones</button>
                 <a class="inc" style="color: white;" href="./perfil.html">
-                    <button class="btn perfil">Perfil</button>
-                    </a>
+                    <button class="btn perfil translate" data-es="Perfil" data-en="Profile">Perfil</button>
+                </a>
             </nav>
         </aside>
-        <main class="chat-area" >
+
+        <main class="chat-area">
             <div class="chat-header">
-                <span class="status">En Línea</spyan>
+                <span class="status translate" data-es="En Línea" data-en="Online">En Línea</span>
                 <div class="status-indicator"></div>
             </div>
             <div id="chat-container" class="chat-box">
                 <div class="message-box"></div>
             </div>
-        
             <div class="input-area">
                 <input id="message-input" type="text" placeholder="Escribe tu pregunta aquí..." />
                 <button id="send-btn" class="send-btn">
                     <i class="fas fa-paperclip"></i>
                 </button>
                 <div class="btn1">
-                <button id="send-btn2" class="send-btn2">               
-                <i class="fa-solid fa-arrow-up"></i>    
-                </button>
+                    <button id="send-btn2" class="send-btn2">               
+                        <i class="fa-solid fa-arrow-up"></i>    
+                    </button>
                 </div>
-        </div>
+            </div>
         </main>
     </div>
-    <!--ventana emergente-->
 
+    <!-- Ventana emergente de configuraciones -->
     <div id="modo-modal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 style="color: black;">configuraciones</h2>
-            <div class="theme-options">
-                <button id="light-mode-btn">Modo Claro 
-                <ion-icon name="sunny"></ion-icon></button>
-
-                <button id="dark-mode-btn">Modo Oscuro 
-                 <ion-icon name="moon"></ion-icon></button>
-                 <button id="idioma">Idioma</button>
-                 <button></button>
-                </div>
+            <div class="header">
+                <h2 class="translate" data-es="Configuración" data-en="Settings">Configuración</h2>
+                <button class="close-btn" id="closeBtn">&times;</button>
+            </div>
+            <div class="content">
+                <ul>
+                    <li>
+                        <h3 class="translate" data-es="General" data-en="General">General</h3>
+                        <div class="option">
+                            <label class="translate" for="theme-select" data-es="Tema" data-en="Theme">Tema</label>
+                            <div class="theme-options">
+                                <button id="light-mode-btn" class="translate" data-es="Modo Claro" data-en="Light Mode">Modo Claro</button>
+                                <button id="dark-mode-btn" class="translate" data-es="Modo Oscuro" data-en="Dark Mode">Modo Oscuro</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="option">
+                            <label class="translate" for="audio-select" data-es="Idioma" data-en="Language">Idioma</label>
+                            <select id="language-selector">
+                                <option value="es">Español</option>
+                                <option value="en">English</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/src/components/chat.js"></script>
+  
+
 </body>
 </html>

@@ -5,7 +5,6 @@
     font-family: "Inter", sans-serif;
 }
 
-
 :root {
     --background-sidebar:#ffffff;
     --text-color: hsla(0, 0%, 100%, 0.896);
@@ -21,7 +20,6 @@
     --chat-container-color:#cca7d3 #8d5baa;
     --send-btn2-color:#bd9ec0;
     --send-btn-hover:rgb(182, 108, 182);
-
 }
 
 body {
@@ -37,7 +35,6 @@ body {
     width: 250px;
     background-color: var(--background-sidebar);
     padding: 20px;
-
 }
 
 .container .circle {
@@ -75,6 +72,7 @@ body {
     cursor: pointer;
     text-align: left;
 }
+
 .btn:hover {
     background-color: var(--button-hover);
     color: var(--color-hover);
@@ -85,7 +83,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image:var(--img);
+    background-image: var(--img);
     background-size: cover;
     background-position: center;
     padding: 20px;
@@ -102,20 +100,19 @@ body {
 }
 
 #chat-container {
-    height: 500px; 
-    overflow-y: auto; 
-    overflow-x: hidden; /* Evita el desbordamiento horizontal */
-    padding: 10px; 
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
     margin-top: -30px;
     border-radius: 5px;
     background-color: var(--chat-area-bg);
-    scrollbar-width: 20px; /* Barra delgada */
-    scrollbar-color: var(--chat-container-color); /* Color de la barra y del fondo */
+    scrollbar-width: 20px;
+    scrollbar-color: var(--chat-container-color);
 }
 
 .chat-box::-webkit-scrollbar {
-    width: 8px; /* Ancho de la barra de desplazamiento */
-
+    width: 8px;
 }
 
 .status {
@@ -193,21 +190,22 @@ input[type="text"]:focus {
 .send-btn2 {
     width: 50px;
     height: 50px;
-    background-color:var(--send-btn2-color);
+    background-color: var(--send-btn2-color);
     border: none;
     border-radius: 50%;
     margin-left: 120%;
     cursor: pointer;
 }
-.send-btn:hover{
+
+.send-btn:hover {
     background-color: var(--send-btn-hover);
-    color: white;   
-}
-.send-btn2:hover{
-    background-color: var(--send-btn-hover);
-    color: white;   
+    color: white;
 }
 
+.send-btn2:hover {
+    background-color: var(--send-btn-hover);
+    color: white;
+}
 
 .send-btn i {
     color: #ffffff;
@@ -229,31 +227,33 @@ input[type="text"]:focus {
     z-index: 1;
 }
 
-.send-btn::after {
-    content: "";
-    color: white;
-    font-size: 16px;
-}
-
 .message-box {
-    background-color: #8571c2;
-    color: white;
-    margin-top: 40px;
+    margin-top: -10px;
     padding: 15px 16px;
     border-radius: 10px;
     margin-bottom: 20px;
+    word-wrap: break-word; 
+    word-break: break-all; 
+    display: inline-block; 
+    white-space: pre-wrap; 
 }
 
 .message-box.usuario {
-    background-color: #4a90e2;
+    background-color: #614070;
     align-self: flex-end;
+    width: 60%;
+    margin-left: 40%;
+   
 }
 
 .message-box.ia {
-    background-color: #79366a;
+    background-color: #7f498f;
     align-self: flex-start;
+    padding: 20px ;
+    width: 60%;
 }
 
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -271,7 +271,7 @@ input[type="text"]:focus {
     background-color: #fefefe;
     padding: 20px;
     border-radius: 8px;
-    width: 300px;
+    width: 400px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
@@ -288,19 +288,87 @@ input[type="text"]:focus {
     cursor: pointer;
 }
 
-/* Botones de tema */
-.theme-options button {
-   border: 2px solid black;
-
+.content ul {
+    list-style-type: none;
 }
 
+.content li {
+    margin-bottom: 20px;
+}
+
+.content h3 {
+    font-size: 18px;
+    margin-bottom: 70px;
+    color: #000000;
+    margin-top: -20px;
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #000;
+}
+
+.option select,
+.option input[type="checkbox"] {
+    padding: 5px;
+    font-size: 16px;
+}
+.header button{
+    position: relative;
+    margin-top: -45px;
+    width: 35px;
+    height: 35px;
+    left: 10px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+}
+button {
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.close-btn {
+    width: 40px;
+    height: 40px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 90%;
+    border-radius: 4px;
+    background-color: #000;
+}
+
+button:hover {
+    background-color: #000000d2;
+}
+
+/* Botones de tema */
+.theme-options button {
+   border: 2px solid rgb(0, 0, 0);
+   padding: 10px 10px;
+   
+}
 
 #light-mode-btn {
-    background-color: #e0e0e0;
+    background-color: #ffffff;
+    color:#000;
 }
 
 #dark-mode-btn {
-    background-color: #333;
+    background-color: #000000;
     color: white;
 }
 
@@ -314,13 +382,13 @@ input[type="text"]:focus {
     --img: url('/public/assets/fondo03.avif');
     --button-hover:rgb(182, 108, 182);
     --button-text: rgb(255, 255, 255);
-    --chat-area-bg:hsla(0, 0%, 100%, 0.452);
+    --chat-area-bg: hsla(0, 0%, 100%, 0.452);
     --input-area-bg: #ffffff;
     --input-text-color: rgb(2, 2, 2);
-    --send-btn-bg:#bd9ec0;
-    --chat-container-color:#a17fa8 #dbb5ec;
-    --send-btn2-color:#bd9ec0;
-    --send-btn-hover:rgb(182, 108, 182);
+    --send-btn-bg: #bd9ec0;
+    --chat-container-color: #a17fa8 #dbb5ec;
+    --send-btn2-color: #bd9ec0;
+    --send-btn-hover: rgb(182, 108, 182);
 }
 
 /* Modo Oscuro */
