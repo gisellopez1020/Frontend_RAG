@@ -81,13 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }),
       });
 
-      if (!response.ok) {
-        const errorData = await response.json(); // Obtener detalles del error
-        console.error("Error en el registro:", errorData);
-        alert(`Registro fallido: ${errorData.detail || "Error desconocido"}`);
-        return null;
-      }
-
       const data = await response.json();
       console.log("Registro exitoso:", data);
 
@@ -182,9 +175,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const username = document.getElementById("username").value;
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById(
+          "confirm-password-field"
+        ).value;
 
         // Llamar a la función de registro
-        const registerResponse = await registerUser(username, email, password);
+        const registerResponse = await registerUser(
+          username,
+          email,
+          password,
+          confirmPassword
+        );
 
         if (registerResponse) {
           alert("Usuario registrado exitosamente. Por favor, inicie sesión.");
