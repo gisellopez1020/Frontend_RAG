@@ -98,8 +98,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let isValid = true;
     const username = document.getElementById("username");
     const password = document.getElementById("password");
-    const email = document.getElementById("email");
-    const confirmPassword = document.getElementById("confirm-password");
+    const emailInput = document.getElementById("email");
+    const confirmPasswordInput = document.getElementById("confirm-password");
 
     if (!username.value.trim()) {
       showError(username, "Ingrese el usuario.");
@@ -112,16 +112,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (!isLogin) {
-      if (!email.value.trim()) {
-        showError(email, "Ingrese un correo electrónico.");
+      if (!emailInput.value.trim()) {
+        showError(emailInput, "Ingrese un correo electrónico.");
         isValid = false;
       }
 
-      if (!confirmPassword.value.trim()) {
-        showError(confirmPassword, "Confirme su contraseña.");
+      if (!confirmPasswordInput.value.trim()) {
+        showError(confirmPasswordInput, "Confirme su contraseña.");
         isValid = false;
-      } else if (password.value !== confirmPassword.value) {
-        showError(confirmPassword, "Las contraseñas no coinciden.");
+      } else if (password.value !== confirmPasswordInput.value) {
+        showError(confirmPasswordInput, "Las contraseñas no coinciden.");
         isValid = false;
       }
     }
@@ -147,8 +147,29 @@ document.addEventListener("DOMContentLoaded", function () {
       extraOptions.style.display = "flex";
       socialLogin.style.display = "block";
       submitLink.innerText = "Login";
-      toggleButton.innerHTML = '<i class="fas fa-arrow-left"></i> Sign Up';
+      toggleButton.innerHTML = ' <i class="fas fa-arrow-left"></i>Sign Up';
       isLogin = true;
+    }, 500);
+  }
+
+  function switchToSignUp() {
+    formContainer.classList.toggle("slide-left");
+    formContainer.classList.toggle("slide-right");
+    form.reset();
+    document.querySelectorAll(".error-message").forEach((el) => el.remove());
+
+    imageContainer2.querySelector("img").classList.toggle("zoom-in");
+    imageContainer.querySelector("img").classList.toggle("zoom-in");
+
+    setTimeout(() => {
+      formTitle.innerText = "Sign Up";
+      email.style.display = "block";
+      confirmPassword.style.display = "block";
+      extraOptions.style.display = "none";
+      socialLogin.style.display = "block";
+      submitLink.innerText = "Sign Up";
+      toggleButton.innerHTML = ' Login<i class="fas fa-arrow-right"></i>';
+      isLogin = false;
     }, 500);
   }
 
@@ -158,11 +179,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (validateForm()) {
       if (isLogin) {
         // Si es login, obtenemos el email y la contraseña y llamamos a loginUser
-        const email = document.getElementById("username").value; // Cambiado a email según tu backend
-        const password = document.getElementById("password").value;
+        const emailValue = document.getElementById("username").value;
+        const passwordValue = document.getElementById("password").value;
 
         // Llamar a la función de login
-        const loginResponse = await loginUser(email, password);
+        const loginResponse = await loginUser(emailValue, passwordValue);
 
         if (loginResponse) {
           // Si el login es exitoso, redirigimos al chat
@@ -172,19 +193,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       } else {
         // Registro de usuario
-        const username = document.getElementById("username").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const confirmPassword = document.getElementById(
-          "confirm-password-field"
+        const usernameValue = document.getElementById("username").value;
+        const emailValue = document.getElementById("email").value;
+        const passwordValue = document.getElementById("password").value;
+        const confirmPasswordValue = document.getElementById(
+          "confirm-password"
         ).value;
 
         // Llamar a la función de registro
         const registerResponse = await registerUser(
-          username,
-          email,
-          password,
-          confirmPassword
+          usernameValue,
+          emailValue,
+          passwordValue,
+          confirmPasswordValue
         );
 
         if (registerResponse) {
@@ -198,36 +219,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   toggleButton.addEventListener("click", function () {
-    formContainer.classList.toggle("slide-left");
-    formContainer.classList.toggle("slide-right");
-    form.reset();
-
-    // Eliminar cualquier mensaje de error existente
-    document.querySelectorAll(".error-message").forEach((el) => el.remove());
-
-    imageContainer2.querySelector("img").classList.toggle("zoom-in");
-    imageContainer.querySelector("img").classList.toggle("zoom-in");
-
-    setTimeout(() => {
-      if (isLogin) {
-        formTitle.innerText = "Sign Up";
-        email.style.display = "block";
-        confirmPassword.style.display = "block";
-        extraOptions.style.display = "none";
-        socialLogin.style.display = "block";
-        submitLink.innerText = "Sign Up";
-        toggleButton.innerHTML = 'Login <i class="fas fa-arrow-right"></i>';
-      } else {
-        formTitle.innerText = "Login";
-        email.style.display = "none";
-        confirmPassword.style.display = "none";
-        extraOptions.style.display = "flex";
-        socialLogin.style.display = "block";
-        submitLink.innerText = "Login";
-        toggleButton.innerHTML = '<i class="fas fa-arrow-left"></i> Sign Up';
-      }
-      isLogin = !isLogin;
-    }, 500);
+    if (isLogin) {
+      switchToSignUp();
+    } else {
+      switchToLogin();
+    }
   });
 
   const btn1 = document.getElementById("toggle-btn");
@@ -243,4 +239,43 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     movedRight = !movedRight;
   });
+
+  // Función para cambiar directamente a Sign Up si hay un hash en la URL
+  function directToSignUp() {
+    // Cambiar a Sign Up sin animación
+    formTitle.innerText = "Sign Up";
+    email.style.display = "block";
+    confirmPassword.style.display = "block";
+    extraOptions.style.display = "none";
+    socialLogin.style.display = "block";
+    submitLink.innerText = "Sign Up";
+    toggleButton.innerHTML = '<i class="fas fa-arrow-left"></i> Login';
+    isLogin = false;
+    
+    
+const btn1 = document.getElementById("toggle-btn");
+let movedRight = false;
+
+btn1.addEventListener("click", function () {
+  if (movedRight) {
+    btn1.classList.remove("move-left");
+    btn1.classList.add("move-right");
+  } else {
+    btn1.classList.remove("move-right");
+    btn1.classList.add("move-left");
+  }
+  movedRight = !movedRight;
 });
+  }
+
+  // Si la URL tiene el hash #signup, cambiamos a Sign Up inmediatamente
+  if (window.location.hash === "#signup") {
+    directToSignUp();
+  }
+});
+
+
+
+
+
+
