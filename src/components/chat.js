@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append('filename', file.name);
 
         try {
-            const response = await fetch('http://localhost:8001/upload-file/', { // Endpoint actualizado
+            const response = await fetch('http://localhost:8001/save-document', { // Endpoint actualizado
                 method: 'POST',
                 body: formData,
             });
