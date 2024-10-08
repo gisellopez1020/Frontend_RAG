@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append('filename', file.name);
 
         try {
-            const response = await fetch('http://localhost:8001/save-document', { // Endpoint actualizado
+            const response = await fetch('http://localhost:8001/save-document/', { // Endpoint actualizado
                 method: 'POST',
                 body: formData,
             });
@@ -261,31 +261,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 });
-
-// Validación de usuario
-async function enviarPreguntaAlBackend(email, password) {
-    const url = "http://localhost:8001/user/validate"; 
-
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }), 
-        });
-
-        if (!response.ok) {
-            throw new Error('Error en la solicitud al servidor');
-        }
-
-        const data = await response.json();
-        return data;  
-    } catch (error) {
-        console.error('Error:', error);
-        return 'Hubo un error al validar el usuario';
-    }
-}
 
 //respuesta IA
 // Función para enviar la pregunta al backend y obtener la respuesta de la IA
