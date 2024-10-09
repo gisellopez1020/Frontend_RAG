@@ -79,7 +79,7 @@
     </div>
     
     <div class="modal-container" id="modal_container">
-        <div1 class="modal2">
+        <div class="modal2">
             <div class="modal-header">
                 <div class="close-button">
                     <button id="close">&times;</button>
@@ -97,18 +97,24 @@
                 <p class="translate" data-es="Haz clic aquí o suelta el archivo aquí" data-en="Click here or drop the file here">Haz clic aquí o suelta el archivo aquí</p>
             </div>
             <hr width="100%" size="1" color="#022052">
-
+    
             <div class="modal-footer">
                 <p class="translate" data-es="Archivos permitidos: pdf" data-en="Allowed files: pdf">Archivos permitidos: pdf</p>
-            </div> 
-              <!-- Mensaje de subida -->
-              <div id="uploadMessage"></div>
-
-              <!-- Mostrar archivos subidos -->
-              <div id="portfolioDisplay"></div>
-        </div1>
+            </div>
+    
+            <!-- Mensaje de subida -->
+            <div id="uploadMessage"></div>
+    
+            <!-- Mostrar archivos subidos -->
+            <div id="portfolioDisplay"></div>
+        </div>
     </div>
-
+    
+    <div id="input-area">
+        <input type="text" id="message-input" placeholder="Escribe tu mensaje aquí..." />
+        <input type="file" id="file-input" style="display:none;" />
+        <button id="send-btn">Enviar</button>
+    </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/src/components/chat.js"></script>

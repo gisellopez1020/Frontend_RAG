@@ -184,83 +184,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
-//subir
-document.addEventListener('DOMContentLoaded', function () {
-    const fileInput = document.getElementById('port-doc');
-    const uploadMessage = document.getElementById('uploadMessage');
-    const portfolioDisplay = document.getElementById('portfolioDisplay');
-
-    // Función para enviar el archivo al backend y almacenarlo
-    const uploadFileToBackend = async (file) => {
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('filename', file.name);
-
-        try {
-            const response = await fetch('http://localhost:8001/save-document/', { // Endpoint actualizado
-                method: 'POST',
-                body: formData,
-            });
-
-            if (!response.ok) {
-                const errorResponse = await response.json();
-                throw new Error(`Error: ${errorResponse.detail || 'Error en la solicitud al servidor'}`);
-            }
-
-            const result = await response.json();
-            return result;  // El backend debería devolver algo como { status: 'success', url: 'ruta_del_archivo' }
-        } catch (error) {
-            console.error('Error al subir el archivo:', error);
-            return { status: 'error', message: error.message || 'Hubo un error al subir el archivo.' };
-        }
-    };
-
-    // Evento para subir archivos
-    fileInput.addEventListener('change', async (event) => {
-        const files = event.target.files;
-        if (files.length > 0) {
-            try {
-                const uploadedFiles = [];
-
-                // Enviar cada archivo al backend
-                for (const file of files) {
-                    const result = await uploadFileToBackend(file);
-
-                    if (result.status === 'success') {
-                        uploadedFiles.push({
-                            name: file.name,
-                            url: result.url  // Aquí el backend debe devolver la URL o algún identificador
-                        });
-                        uploadMessage.textContent = 'Archivo subido con éxito.';
-                    } else {
-                        uploadMessage.textContent = 'Error al subir el archivo.';
-                    }
-                }
-
-                // Mostrar los archivos subidos
-                displayPortfolio(uploadedFiles);
-
-            } catch (error) {
-                console.error('Error al subir el archivo:', error);
-                uploadMessage.textContent = 'Error al subir el archivo.';
-            }
-        }
-    });
-
-    // Función para mostrar los archivos subidos
-    const displayPortfolio = (files) => {
-        portfolioDisplay.innerHTML = '';
-        files.forEach(file => {
-            const fileElement = document.createElement('p');
-            const fileLink = document.createElement('a');
-            fileLink.href = file.url;  // URL devuelta por el backend
-            fileLink.textContent = file.name;
-            fileLink.download = file.name;
-            fileElement.appendChild(fileLink);
-            portfolioDisplay.appendChild(fileElement);
-        });
-    };
-});
 
 //respuesta IA
 // Función para enviar la pregunta al backend y obtener la respuesta de la IA
@@ -330,5 +253,96 @@ messageInput.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         enviarMensaje();
     }
+});
+
+
+//PARA DOCUMENTOS
+//Subir un archivo (documento)
+document.addEventListener('DOMContentLoaded', function () {
+    const chatBox = document.getElementById('chat-box');
+    const messageInput = document.getElementById('message-input');
+    const fileInput = document.getElementById('port-doc');  // Asegúrate de usar el ID correcto del input de archivo
+    const sendBtn = document.getElementById('send-btn');
+    const uploadMessage = document.getElementById('uploadMessage');
+    const portfolioDisplay = document.getElementById('portfolioDisplay');
+    let fileToSend = null; // Para almacenar el archivo arrastrado
+
+    // Evento de "drag and drop" para detectar cuando se arrastra un archivo al área de chat
+    chatBox.addEventListener('dragover', (event) => {
+        event.preventDefault(); // Evitar que el navegador abra el archivo
+        chatBox.style.border = '2px dashed #000'; // Mostrar borde para indicar que es un área de drop
+    });
+
+    chatBox.addEventListener('dragleave', () => {
+        chatBox.style.border = ''; // Quitar el estilo del borde cuando se deja de arrastrar
+    });
+
+    chatBox.addEventListener('drop', (event) => {
+        event.preventDefault();
+        chatBox.style.border = ''; // Quitar el borde
+
+        // Obtener el archivo arrastrado
+        const files = event.dataTransfer.files;
+        if (files.length > 0) {
+            fileToSend = files[0];
+            messageInput.value = `Archivo listo para enviar: ${fileToSend.name}`; // Mostrar el nombre del archivo en el input de texto
+        }
+    });
+
+    // Evento para enviar el archivo cuando se presiona "Enter" o se hace clic en el botón
+    sendBtn.addEventListener('click', async () => {
+        if (fileToSend) {
+            await sendFile(fileToSend); // Llamar a la función que envía el archivo al servidor
+            fileToSend = null; // Reiniciar el archivo después de enviarlo
+            messageInput.value = ''; // Limpiar el input de mensaje
+        } else {
+            console.log('No hay archivo para enviar');
+        }
+    });
+
+    messageInput.addEventListener('keypress', async (event) => {
+        if (event.key === 'Enter' && fileToSend) {
+            await sendFile(fileToSend); // Llamar a la función que envía el archivo al servidor
+            fileToSend = null; // Reiniciar el archivo después de enviarlo
+            messageInput.value = ''; // Limpiar el input de mensaje
+        }
+    });
+
+    // Función para subir el archivo al servidor
+    const sendFile = async (file) => {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        try {
+            const response = await fetch('http://localhost:8001/save-document', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!response.ok) {
+                throw new Error('Error al subir el archivo');
+            }
+
+            const result = await response.json();
+            
+            // Mostrar un mensaje de éxito o error
+            if (result.message === "Documento guardado exitosamente.") {
+                uploadMessage.textContent = `Archivo "${file.name}" subido con éxito.`;
+                displayUploadedFile(file.name);
+            } else {
+                uploadMessage.textContent = `Error al subir el archivo "${file.name}".`;
+            }
+        } catch (error) {
+            console.error('Error al subir el archivo:', error);
+            uploadMessage.textContent = `Error al subir el archivo: ${error.message}`;
+        }
+    };
+
+    // Función para mostrar el archivo subido en la interfaz
+    const displayUploadedFile = (fileName) => {
+        const fileElement = document.createElement('p');
+        fileElement.textContent = `Archivo subido: ${fileName}`;
+        portfolioDisplay.appendChild(fileElement); // Añadir el archivo subido a la lista
+    };
 });
 
