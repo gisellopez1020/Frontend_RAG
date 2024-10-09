@@ -517,3 +517,9 @@ button:hover {
     text-align: center; 
     margin-top: 10px;
 }
+#uploadMessage {
+    color: rgb(10, 7, 7); /* Color por defecto para los mensajes de error */
+    font-size: 14px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
