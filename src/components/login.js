@@ -196,9 +196,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const usernameValue = document.getElementById("username").value;
         const emailValue = document.getElementById("email").value;
         const passwordValue = document.getElementById("password").value;
-        const confirmPasswordValue = document.getElementById(
-          "confirm-password"
-        ).value;
+        const confirmPasswordValue =
+          document.getElementById("confirm-password").value;
 
         // Llamar a la función de registro
         const registerResponse = await registerUser(
@@ -209,8 +208,8 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         if (registerResponse) {
-          alert("Usuario registrado exitosamente. Por favor, inicie sesión.");
-          switchToLogin(); // Cambiar automáticamente al modo de login
+          alert("Usuario registrado exitosamente. Bienvenido");
+          window.location.href = "../public/chat.html";
         } else {
           alert("Registro fallido. Inténtalo de nuevo.");
         }
@@ -251,21 +250,20 @@ document.addEventListener("DOMContentLoaded", function () {
     submitLink.innerText = "Sign Up";
     toggleButton.innerHTML = '<i class="fas fa-arrow-left"></i> Login';
     isLogin = false;
-    
-    
-const btn1 = document.getElementById("toggle-btn");
-let movedRight = false;
 
-btn1.addEventListener("click", function () {
-  if (movedRight) {
-    btn1.classList.remove("move-left");
-    btn1.classList.add("move-right");
-  } else {
-    btn1.classList.remove("move-right");
-    btn1.classList.add("move-left");
-  }
-  movedRight = !movedRight;
-});
+    const btn1 = document.getElementById("toggle-btn");
+    let movedRight = false;
+
+    btn1.addEventListener("click", function () {
+      if (movedRight) {
+        btn1.classList.remove("move-left");
+        btn1.classList.add("move-right");
+      } else {
+        btn1.classList.remove("move-right");
+        btn1.classList.add("move-left");
+      }
+      movedRight = !movedRight;
+    });
   }
 
   // Si la URL tiene el hash #signup, cambiamos a Sign Up inmediatamente
@@ -273,9 +271,3 @@ btn1.addEventListener("click", function () {
     directToSignUp();
   }
 });
-
-
-
-
-
-
