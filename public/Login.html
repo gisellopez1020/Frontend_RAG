@@ -1,69 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login/Sign Up Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/src/styles/Login.css">
-</head>
-<body>
-  <div class="container">
-    <div class="image-container">
-      <img src="/public/assets/spartan.png" alt="Nature Image">
-      <div class="overlay"></div>
-    </div>
-    <div class="btn1">
-      <button id="toggle-btn">Sign Up</button>
-    </div>
-    <div class="form-container">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/src/styles/Login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-container">
+        <img src="/public/assets/spartan.png" alt="Nature Image" />
+        <div class="overlay"></div>
+      </div>
+      <div class="btn1">
+        <button id="toggle-btn">Sign Up</button>
+      </div>
+      <div class="form-container">
         <div class="login-form">
-            <h2 id="form-title">Login</h2>
-            <form id="auth-form">
-                <div class="input-group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" id="username" placeholder="Usuario" required>
-                </div>
-
-                <div class="input-group" id="email-field" style="display: none;">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" id="email" placeholder="Email" required>
-                </div>
-
-                <div class="input-group">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" id="password" placeholder="Contraseña" required>
-                </div>
-
-                <div class="input-group" id="confirm-password-field" style="display: none;">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" id="confirm-password" placeholder="Confirmar Contraseña" required>
-                </div>
-                <div id="extra-options" class="options">
-                    <label>
-                        <input type="checkbox"> Terminos y condiciones
-                    </label>
-                    <a href="#">¿Olvidaste tu contraseña?</a>
-                </div>
-
-                <div class="btn2">
-                    <a class="inc" href="../public/chat.html">
-                        Login
-                      </a>                
-                    </div>
-            </form>
-            <div class="social-login">
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-google"></i></a>
-                </div>
+          <h2 id="form-title">Login</h2>
+          <form id="auth-form">
+            <div class="input-group">
+              <i class="fas fa-user"></i>
+              <input type="text" id="username" placeholder="Usuario" required />
             </div>
+
+            <div class="input-group" id="email-field" style="display: none">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="email" placeholder="Email" required />
+            </div>
+
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="password"
+                placeholder="Contraseña"
+                required
+              />
+            </div>
+
+            <div
+              class="input-group"
+              id="confirm-password-field"
+              style="display: none"
+            >
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="confirm_password"
+                placeholder="Confirmar Contraseña"
+                required
+              />
+            </div>
+            <div id="extra-options" class="options">
+              <label> <input type="checkbox" /> Terminos y condiciones </label>
+              <a href="#">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <div class="btn2">
+              <a class="inc" href="../public/chat.html"> Login </a>
+            </div>
+          </form>
+          <div class="social-login">
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-google"></i></a>
+            </div>
+          </div>
         </div>
-    </div>
-    <div class="image-container2">
-        <img src="/public/assets/spartan.png" >
+      </div>
+      <div class="image-container2">
+        <img src="/public/assets/spartan.png" />
         <div class="overlay2"></div>
+      </div>
     </div>
-  </div>
-  <script src="/src/components/login.js"></script>
-</body>
+    <script src="/src/components/login.js"></script>
+  </body>
 </html>

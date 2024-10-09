@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const extraOptions = document.getElementById("extra-options");
   const socialLogin = document.querySelector(".social-login");
   const email = document.getElementById("email-field");
-  const confirmPassword = document.getElementById("confirm-password-field");
+  const confirm_password = document.getElementById("confirm-password-field");
   let isLogin = true;
 
   function showError(inputElement, message) {
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  async function registerUser(username, email, password, confirmPassword) {
+  async function registerUser(username, email, password, confirm_password) {
     const url = "http://localhost:8001/save-user/";
 
     try {
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
           name: username,
           email: email,
           password: password,
-          confirmPassword: confirmPassword,
+          confirm_password: confirm_password,
         }),
       });
 
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const username = document.getElementById("username");
     const password = document.getElementById("password");
     const emailInput = document.getElementById("email");
-    const confirmPasswordInput = document.getElementById("confirm-password");
+    const confirmPasswordInput = document.getElementById("confirm_password");
 
     if (!username.value.trim()) {
       showError(username, "Ingrese el usuario.");
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       formTitle.innerText = "Login";
       email.style.display = "none";
-      confirmPassword.style.display = "none";
+      confirm_password.style.display = "none";
       extraOptions.style.display = "flex";
       socialLogin.style.display = "block";
       submitLink.innerText = "Login";
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       formTitle.innerText = "Sign Up";
       email.style.display = "block";
-      confirmPassword.style.display = "block";
+      confirm_password.style.display = "block";
       extraOptions.style.display = "none";
       socialLogin.style.display = "block";
       submitLink.innerText = "Sign Up";
@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const emailValue = document.getElementById("email").value;
         const passwordValue = document.getElementById("password").value;
         const confirmPasswordValue =
-          document.getElementById("confirm-password").value;
+          document.getElementById("confirm_password").value;
 
         // Llamar a la función de registro
         const registerResponse = await registerUser(
@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Cambiar a Sign Up sin animación
     formTitle.innerText = "Sign Up";
     email.style.display = "block";
-    confirmPassword.style.display = "block";
+    confirm_password.style.display = "block";
     extraOptions.style.display = "none";
     socialLogin.style.display = "block";
     submitLink.innerText = "Sign Up";
