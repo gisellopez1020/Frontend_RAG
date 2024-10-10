@@ -191,7 +191,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const fileInput = document.getElementById("port-doc");
   const uploadMessage = document.getElementById("uploadMessage");
   const portfolioDisplay = document.getElementById("portfolioDisplay");
-
   // Función para enviar el archivo al backend y almacenarlo
   const uploadFileToBackend = async (file) => {
     const formData = new FormData();
@@ -229,30 +228,36 @@ document.addEventListener("DOMContentLoaded", function () {
     if (files.length > 0) {
       try {
         const uploadedFiles = [];
-
-        // Enviar cada archivo al backend
+  
+        // Cerrar el área de subir archivo
+        modalContainer.classList.remove("show");
+  
+        // Mostrar el archivo seleccionado en el área de mensaje
+        messageInput.value = files[0].name;
+  
+        // Subir el archivo al backend
         for (const file of files) {
           const result = await uploadFileToBackend(file);
-
+  
           if (result.status === "success") {
             uploadedFiles.push({
               name: file.name,
-              url: result.url, // Aquí el backend debe devolver la URL o algún identificador
+              url: result.url,
             });
             uploadMessage.textContent = "Archivo subido con éxito.";
           } else {
             uploadMessage.textContent = "Error al subir el archivo.";
           }
         }
-
-        // Mostrar los archivos subidos
-        displayPortfolio(uploadedFiles);
+  
+        displayPortfolio(uploadedFiles); // Mostrar archivo subido
       } catch (error) {
         console.error("Error al subir el archivo:", error);
         uploadMessage.textContent = "Error al subir el archivo.";
       }
     }
   });
+  
 
   // Función para mostrar los archivos subidos
   const displayPortfolio = (files) => {
