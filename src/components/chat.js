@@ -229,11 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const uploadedFiles = [];
 
-      // Cerrar el área de subir archivo
-      modalContainer.classList.remove("show");
 
-      // Mostrar el archivo seleccionado en el área de mensaje
-      messageInput.value = files[0].name;
 
       // Subir el archivo al backend
       for (const file of files) {
