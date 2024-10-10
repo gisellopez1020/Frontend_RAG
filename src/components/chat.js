@@ -223,41 +223,35 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Evento para subir archivos
-  fileInput.addEventListener("change", async (event) => {
-    const files = event.target.files;
-    if (files.length > 0) {
-      try {
-        const uploadedFiles = [];
-  
-        // Cerrar el área de subir archivo
-        modalContainer.classList.remove("show");
-  
-        // Mostrar el archivo seleccionado en el área de mensaje
-        messageInput.value = files[0].name;
-  
-        // Subir el archivo al backend
-        for (const file of files) {
-          const result = await uploadFileToBackend(file);
-  
-          if (result.status === "success") {
-            uploadedFiles.push({
-              name: file.name,
-              url: result.url,
-            });
-            uploadMessage.textContent = "Archivo subido con éxito.";
-          } else {
-            uploadMessage.textContent = "Error al subir el archivo.";
-          }
+ fileInput.addEventListener("change", async (event) => {
+  const files = event.target.files;
+  if (files.length > 0) {
+    try {
+      const uploadedFiles = [];
+
+      // Subir el archivo al backend
+      for (const file of files) {
+        const result = await uploadFileToBackend(file);
+
+        if (result.status === "success") {
+          uploadedFiles.push({
+            name: file.name,
+            url: result.url,
+          });
+          uploadMessage.textContent = "Archivo subido con éxito.";
+        } else {
+          uploadMessage.textContent = "Error al subir el archivo.";
         }
-  
-        displayPortfolio(uploadedFiles); // Mostrar archivo subido
-      } catch (error) {
-        console.error("Error al subir el archivo:", error);
-        uploadMessage.textContent = "Error al subir el archivo.";
       }
+
+      displayPortfolio(uploadedFiles); // Mostrar archivo subido
+    } catch (error) {
+      console.error("Error al subir el archivo:", error);
+      uploadMessage.textContent = "Error al subir el archivo.";
     }
-  });
-  
+  }
+});
+
 
   // Función para mostrar los archivos subidos
   const displayPortfolio = (files) => {
