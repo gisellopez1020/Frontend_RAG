@@ -411,11 +411,11 @@ button:hover {
     --color-hover:rgb(255, 255, 255);
     --button-hover:#424549;
     --button-text: white;
-    --chat-area-bg: hsla(220, 3%, 19%, 0.896);
-    --input-area-bg: #1b1c1f;
+    --chat-area-bg: hsla(210, 1%, 63%, 0.733);
+    --input-area-bg: #4d4e53;
     --input-text-color: white;
     --send-btn-bg:#2e3033;
-    --chat-container-color:#888888 #1b1b1b;
+    --chat-container-color:#706e6e #1b1b1b;
     --send-btn2-color:#2e3033;
     --send-btn-hover:#424549;
 }
