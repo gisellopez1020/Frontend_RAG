@@ -315,6 +315,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    
     // Función para subir el archivo al servidor
     const sendFile = async (file) => {
         const formData = new FormData();
@@ -327,8 +328,13 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             if (!response.ok) {
-                throw new Error('Error al subir el archivo');
-            }
+                const errorResponse = await response.json();
+                throw new Error(
+                  `Error: ${
+                    errorResponse.message || "Error en la solicitud al servidor"
+                  }`
+                );
+              }
 
             const result = await response.json();
             console.log('Archivo subido con éxito:', result);
@@ -347,7 +353,37 @@ document.addEventListener('DOMContentLoaded', function () {
             uploadMessage.style.color = 'red';
         }
     };
-
+// Evento para subir archivos
+fileInput.addEventListener("change", async (event) => {
+    const files = event.target.files;
+    if (files.length > 0) {
+      try {
+        const uploadedFiles = [];
+  
+  
+  
+        // Subir el archivo al backend
+        for (const file of files) {
+          const result = await uploadFileToBackend(file);
+  
+          if (result.status === "success") {
+            uploadedFiles.push({
+              name: file.name,
+              url: result.url,
+            });
+            uploadMessage.textContent = "Archivo subido con éxito.";
+          } else {
+            uploadMessage.textContent = "Error al subir el archivo.";
+          }
+        }
+  
+        displayPortfolio(uploadedFiles); // Mostrar archivo subido
+      } catch (error) {
+        console.error("Error al subir el archivo:", error);
+        uploadMessage.textContent = "Error al subir el archivo.";
+      }
+    }
+  });
     // Subir archivo al hacer clic en el botón de enviar archivo
     sendBtn.addEventListener('click', async () => {
         if (fileToSend) {
