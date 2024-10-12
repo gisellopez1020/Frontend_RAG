@@ -315,7 +315,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    
     // Función para subir el archivo al servidor
     const sendFile = async (file) => {
         const formData = new FormData();
@@ -330,68 +329,44 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!response.ok) {
                 const errorResponse = await response.json();
                 throw new Error(
-                  `Error: ${
-                    errorResponse.message || "Error en la solicitud al servidor"
-                  }`
+                    `Error: ${errorResponse.message || "Error en la solicitud al servidor"}`
                 );
-              }
+            }
 
             const result = await response.json();
             console.log('Archivo subido con éxito:', result);
 
             // Mostrar mensaje de confirmación en el modal si el archivo se subió correctamente
             if (result.message === "Documento guardado exitosamente.") {
-                uploadMessage.textContent = 'Documento guardado exitosamente.';
-                uploadMessage.style.color = 'green';
+                const newMessage = document.createElement('div');
+                newMessage.textContent = `Archivo ${file.name} guardado exitosamente.`;
+                newMessage.style.color = 'green';
+                uploadMessage.appendChild(newMessage);
                 documentId = result.document_id; // Guardar el ID del documento para consultas futuras
             }
 
             return result; // Devuelve la respuesta de la API
         } catch (error) {
             console.error('Error:', error);
-            uploadMessage.textContent = 'Error al subir el archivo.';
-            uploadMessage.style.color = 'red';
+            const errorMessage = document.createElement('div');
+            errorMessage.textContent = `Error al subir el archivo ${file.name}.`;
+            errorMessage.style.color = 'red';
+            uploadMessage.appendChild(errorMessage);
         }
     };
-// Evento para subir archivos
-fileInput.addEventListener("change", async (event) => {
-    const files = event.target.files;
-    if (files.length > 0) {
-      try {
-        const uploadedFiles = [];
-  
-  
-  
-        // Subir el archivo al backend
-        for (const file of files) {
-          const result = await uploadFileToBackend(file);
-  
-          if (result.status === "success") {
-            uploadedFiles.push({
-              name: file.name,
-              url: result.url,
-            });
-            uploadMessage.textContent = "Archivo subido con éxito.";
-          } else {
-            uploadMessage.textContent = "Error al subir el archivo.";
-          }
-        }
-  
-        displayPortfolio(uploadedFiles); // Mostrar archivo subido
-      } catch (error) {
-        console.error("Error al subir el archivo:", error);
-        uploadMessage.textContent = "Error al subir el archivo.";
-      }
-    }
-  });
-    // Subir archivo al hacer clic en el botón de enviar archivo
+
+    // Subir archivo al hacer clic en el botón de enviar mensaje
     sendBtn.addEventListener('click', async () => {
         if (fileToSend) {
-            // Subir solo el archivo
+            // Subir el archivo al backend
             const fileResult = await sendFile(fileToSend);
             fileToSend = null; // Reiniciar el archivo después de enviarlo
             // Limpiar el campo de mensaje después de la subida
             messageInput.value = ''; 
-        }
+        } 
     });
 });
+
+
+
+
