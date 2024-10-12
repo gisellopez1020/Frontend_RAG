@@ -10,7 +10,7 @@
     --text-color: hsla(0, 0%, 100%, 0.896);
     --button-background:#bc78e4;
     --color-hover:rgb(255, 255, 255);
-    --img: url('/public/assets/fondo00.avif');
+    --img: url('/public/assets/fondo0.avif');
     --button-hover:rgb(182, 108, 182);
     --button-text: rgb(255, 255, 255);
     --chat-area-bg:hsla(0, 0%, 97%, 0.774);
@@ -55,6 +55,8 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+    border: 2px solid rgb(0, 0, 0); 
+
 }
 
 .menu {
@@ -71,6 +73,8 @@ body {
     border-radius: 8px;
     cursor: pointer;
     text-align: left;
+    border: 1px solid rgb(0, 0, 0); 
+
 }
 
 .btn:hover {
@@ -124,7 +128,7 @@ body {
     width: 20px;
     height: 20px;
     margin-top: -20px;
-    background-color: rgb(4, 139, 4);
+    background-color: rgb(15, 179, 10);
     border-radius: 50%;
     margin-left: 100px;
     z-index: 1;
@@ -150,7 +154,7 @@ input[type="text"] {
     background-color: transparent;
     border: none;
     font-size: 16px;
-    padding: 10px;
+    padding: 10px 20px;
     outline: none;
     color: var(--input-text-color);
 }
@@ -166,6 +170,7 @@ input[type="text"]::placeholder {
     color: var(--input-text-color);
     background: none;
     border: none;
+    padding: 10px;
     text-decoration: none;
 }
 
@@ -173,6 +178,7 @@ input[type="text"]:focus {
     background-color: transparent;
     outline: none;
     border: none;
+    
 }
 
 .send-btn {
@@ -240,18 +246,22 @@ input[type="text"]:focus {
 }
 
 .message-box.usuario {
-    background-color: #614070;
+    background-color: #272727;
     align-self: flex-end;
     width: 60%;
     margin-left: 40%;
+    border: 1px solid black; 
+    border-radius: 10px 10px 0 10px;
    
 }
 
 .message-box.ia {
-    background-color: #7f498f;
+    background-color: #1b1b1b;
     align-self: flex-start;
     padding: 20px ;
     width: 60%;
+    border: 1px solid black; 
+    border-radius: 10px 10px 10px 0;
 }
 
 /* Modal */
@@ -380,7 +390,7 @@ button:hover {
     --text-color: hsla(0, 0%, 100%, 0.896);
     --button-background:#bc78e4;
     --color-hover:rgb(255, 255, 255);
-    --img: url('/public/assets/fondo03.avif');
+    --img: url('/public/assets/fondo00.avif');
     --button-hover:rgb(182, 108, 182);
     --button-text: rgb(255, 255, 255);
     --chat-area-bg: hsla(0, 0%, 100%, 0.452);
@@ -394,20 +404,20 @@ button:hover {
 
 /* Modo Oscuro */
 .dark-theme {
-    --background-sidebar:#0F1F39;
+    --background-sidebar:#1b1c1f;
     --text-color: white;
-    --img: url('/public/assets/fondo0.avif');
-    --button-background:#3E1F42;
+    --img: url('/public/assets/espartano.jpeg');
+    --button-background:#2e3033;
     --color-hover:rgb(255, 255, 255);
-    --button-hover:#562a5c;
+    --button-hover:#424549;
     --button-text: white;
-    --chat-area-bg: hsla(217, 58%, 14%, 0.896);
-    --input-area-bg: hsla(217, 58%, 14%, 0.896);
+    --chat-area-bg: hsla(210, 1%, 63%, 0.733);
+    --input-area-bg: #4d4e53;
     --input-text-color: white;
-    --send-btn-bg:#022052;
-    --chat-container-color:#35276b #0F1F39;
-    --send-btn2-color:#022052;
-    --send-btn-hover:#0d2c63;
+    --send-btn-bg:#2e3033;
+    --chat-container-color:#706e6e #1b1b1b;
+    --send-btn2-color:#2e3033;
+    --send-btn-hover:#424549;
 }
 
 /*VENTANA DE DOCUMENTOS*/
@@ -438,7 +448,7 @@ button:hover {
     width: 450px;
     height:300px ;
     position: relative;  
-    border: 10px double #022052;
+    border: 10px double #000000;
 
 }
 
@@ -461,7 +471,7 @@ button:hover {
     right: -15px;
     width: 30px;
     height: 30px;
-    background-color: rgb(22, 41, 49);
+    background-color: rgb(5, 5, 5);
     border-radius: 50%;
     color: white;
     display: flex;
@@ -474,7 +484,7 @@ button:hover {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background-color: #BFD2D9;
+    background-color: #acaaaa;
     display: flex;
     justify-content: center;
     cursor: pointer;

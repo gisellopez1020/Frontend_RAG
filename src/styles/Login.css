@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("/public/assets/fondo00.avif") no-repeat;
+  background: url("/public/assets/espartano.jpeg") no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -21,7 +21,7 @@ body {
   max-width: 1000px;
   height: 600px;
   display: flex;
-  box-shadow: 0 0 15px 10px rgba(131, 122, 140, 0.698);
+  box-shadow: 0 0 15px 10px rgba(172, 170, 170, 0.698);
   border-radius: 10px;
   background-size: cover;
   overflow: hidden;
@@ -108,10 +108,10 @@ body {
   margin-bottom: 20px;
   text-align: center;
   font-weight: bold;
-  font-family: 'Courier New', Courier, monospace; 
+  font-family:Arial, Helvetica, sans-serif; 
   font-size: 60px; 
-  color: rgb(175, 107, 216);
-  text-shadow: -1px 0 1px #000000, 0 1px 1px #000000, 1px 0 1px #000000, 0 -1px 1px #000000, -2px 2px 2px #000000, 2px 2px 2px #000000, 1px 1px 1px #000000, 2px 2px 2px #000000, 3px 3px 3px #000000, 4px 4px #414D68, 5px 5px #414D68,6px 6px #414D68, 7px 7px #414D68, 8px 8px #414D68, 9px 9px #414D68;
+  color: rgb(124, 85, 231);
+  text-shadow: -1px 0 1px #000000, 0 1px 1px #000000, 1px 0 1px #000000, 0 -1px 1px #000000, -2px 2px 2px #000000, 2px 2px 2px #000000, 1px 1px 1px #000000, 2px 2px 2px #000000, 3px 3px 3px #000000, 4px 4px #3d3d3d, 5px 5px #3d3d3d,6px 6px #3d3d3d, 7px 7px #3d3d3d;
 
 }
 

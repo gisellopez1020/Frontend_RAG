@@ -90,7 +90,7 @@ header a:hover {
 .hero h2 {
   font-size: 4rem;
   margin-bottom: 1rem;
-  font-family: "Courier New", Courier, monospace;
+  font-family:Arial, Helvetica, sans-serif; 
   color: rgb(187, 112, 233);
   text-shadow: -1px 0 1px #000000, 0 1px 1px #000000, 1px 0 1px #000000,
     0 -1px 1px #000000, -2px 2px 2px #000000, 2px 2px 2px #000000,
