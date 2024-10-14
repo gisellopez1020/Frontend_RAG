@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const submitLink = document.querySelector(".btn2 a");
   const toggleButton = document.getElementById("toggle-btn");
   const extraOptions = document.getElementById("extra-options");
+  const admin=document.getElementById("btn0")
   const socialLogin = document.querySelector(".social-login");
   const email = document.getElementById("email-field");
   const confirm_password = document.getElementById("confirm-password-field");
@@ -100,34 +101,46 @@ document.addEventListener("DOMContentLoaded", function () {
     const password = document.getElementById("password");
     const emailInput = document.getElementById("email");
     const confirmPasswordInput = document.getElementById("confirm_password");
+    const adminCodeField = document.getElementById("input");
 
-    if (!username.value.trim()) {
-      showError(username, "Ingrese el usuario.");
-      isValid = false;
-    }
-
-    if (!password.value.trim()) {
-      showError(password, "Ingrese la contraseña.");
-      isValid = false;
-    }
-
-    if (!isLogin) {
-      if (!emailInput.value.trim()) {
-        showError(emailInput, "Ingrese un correo electrónico.");
-        isValid = false;
-      }
-
-      if (!confirmPasswordInput.value.trim()) {
-        showError(confirmPasswordInput, "Confirme su contraseña.");
-        isValid = false;
-      } else if (password.value !== confirmPasswordInput.value) {
-        showError(confirmPasswordInput, "Las contraseñas no coinciden.");
-        isValid = false;
-      }
-    }
-
-    return isValid;
+  // Validar campo de usuario
+  if (!username.value.trim()) {
+    showError(username, "Ingrese el usuario.");
+    isValid = false;
   }
+
+  // Validar campo de contraseña
+  if (!password.value.trim()) {
+    showError(password, "Ingrese la contraseña.");
+    isValid = false;
+  }
+
+   // Validar campo de código de administrador solo si está visible
+  if (adminCodeField && window.getComputedStyle(adminCodeField).display !== "none" && !adminCodeField.value.trim()) {
+    showError(adminCodeField, "Ingrese el código de administrador.");
+    isValid = false;
+  }
+
+  // Si no es modo login, validar campos adicionales
+  if (!isLogin) {
+    
+    if (!emailInput.value.trim()) {
+      showError(emailInput, "Ingrese un correo electrónico.");
+      isValid = false;
+    }
+
+    // Validar confirmación de contraseña
+    if (!confirmPasswordInput.value.trim()) {
+      showError(confirmPasswordInput, "Confirme su contraseña.");
+      isValid = false;
+    } else if (password.value !== confirmPasswordInput.value) {
+      showError(confirmPasswordInput, "Las contraseñas no coinciden.");
+      isValid = false;
+    }
+  }
+
+  return isValid;
+}
 
   function switchToLogin() {
     formContainer.classList.toggle("slide-left");
@@ -145,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
       email.style.display = "none";
       confirm_password.style.display = "none";
       extraOptions.style.display = "flex";
+      admin.style.display="flex";
       socialLogin.style.display = "block";
       submitLink.innerText = "Login";
       toggleButton.innerHTML = ' <i class="fas fa-arrow-left"></i>Sign Up';
@@ -166,6 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
       email.style.display = "block";
       confirm_password.style.display = "block";
       extraOptions.style.display = "none";
+      admin.style.display="none";
       socialLogin.style.display = "block";
       submitLink.innerText = "Sign Up";
       toggleButton.innerHTML = ' Login<i class="fas fa-arrow-right"></i>';
@@ -238,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     movedRight = !movedRight;
   });
-
+ 
   // Función para cambiar directamente a Sign Up si hay un hash en la URL
   function directToSignUp() {
     // Cambiar a Sign Up sin animación
@@ -246,6 +261,8 @@ document.addEventListener("DOMContentLoaded", function () {
     email.style.display = "block";
     confirm_password.style.display = "block";
     extraOptions.style.display = "none";
+    admin.style.display="none";
+    adminCodeField.style.display = "none";
     socialLogin.style.display = "block";
     submitLink.innerText = "Sign Up";
     toggleButton.innerHTML = '<i class="fas fa-arrow-left"></i> Login';
@@ -271,3 +288,163 @@ document.addEventListener("DOMContentLoaded", function () {
     directToSignUp();
   }
 });
+
+//administrador
+document.addEventListener("DOMContentLoaded", function () {
+  const adminButton = document.getElementById("btn0");
+  const formTitle = document.getElementById("form-title");
+  const username = document.getElementById("username");
+  const password = document.getElementById("password");
+  const adminCodeField = document.getElementById("input");
+  const forgotPasswordLink = document.querySelector("#extra-options a");
+  const adminButtonContainer = document.getElementById("btn0");
+  const cambiarSinLogin = document.getElementById("toggle-btn")
+  const socialLogin = document.querySelector(".social-login");
+
+    // Función para cambiar el formulario al login de administrador
+    function switchToAdminLogin() {
+      formTitle.innerText = "Login Administrador";
+      formTitle.style.fontSize = "50px";
+      formTitle.style.marginLeft = "-20px"
+      adminCodeField.style.display = "block"; 
+
+      forgotPasswordLink.style.display = "none";  
+      adminButtonContainer.style.display = "none"; 
+      socialLogin.style.display = "none"; 
+
+    }
+  
+    adminButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      switchToAdminLogin(); 
+    });
+
+    function switchToSignUp() {
+      adminCodeField.style.display = "none"; 
+  
+    }
+  
+    cambiarSinLogin.addEventListener("click", function (e) {
+      e.preventDefault();
+      switchToSignUp();
+    });
+
+    //parte de validar
+    document.querySelector(".btn2 a").addEventListener("click", async function (e) {
+      e.preventDefault();
+  
+      const adminCode = document.getElementById("input").value;
+      
+      if (adminCode) {
+        const registerResponse = await registerAdmin(
+          username.value,
+          password.value,
+          adminCode
+        );
+        if (registerResponse) {
+          alert("Administrador registrado con éxito");
+          window.location.href = "../public/admin-dashboard.html"; 
+        } else {
+          alert("Error en el registro de administrador.");
+        }
+      }
+    });
+  
+    // Función para el registro del administrador(si se va a realizar de manera normal)
+    async function registerAdmin(username, password, adminCode) {
+      const url = "http://localhost:8001/register-admin"; 
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: username,
+            password: password,
+            adminCode: adminCode,
+          }),
+        });
+        if (!response.ok) {
+          throw new Error("Error en el registro de administrador");
+        }
+        return await response.json();
+      } catch (error) {
+        console.error("Error:", error.message);
+        return null;
+      }
+    }
+  });
+
+
+//la otra forma como actualizar usuario
+document.querySelector(".btn2 a").addEventListener("click", async function (e) {
+  e.preventDefault();
+
+  const adminCode = document.getElementById("input").value;
+  
+  if (adminCode) {
+    // validar usuario
+    const loginResponse = await validateUser(username.value, password.value);
+    if (loginResponse) {
+      
+      const updateResponse = await updateUserRole(loginResponse.id, "admin");
+      if (updateResponse) {
+        alert("Rol actualizado a administrador con éxito");
+        window.location.href = "../public/chat.html"; 
+      } else {
+        alert("Error al actualizar el rol a administrador.");
+      }
+    } else {
+      alert("Error en la autenticación del usuario.");
+    }
+  }
+});
+
+async function validateUser(email, password) {
+  const url = "http://localhost:8001/user/validate";
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    });
+    if (!response.ok) {
+      throw new Error("Error en la validación del usuario");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error:", error.message);
+    return null;
+  }
+}
+
+async function updateUserRole(userId, role) {
+  const url = `http://localhost:8001/update-rol/${userId}`;
+  try {
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        role: role,
+      }),
+    });
+    if (!response.ok) {
+      throw new Error("Error al actualizar el rol del usuario");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error:", error.message);
+    return null;
+  }
+}
+
+
+  

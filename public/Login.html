@@ -16,6 +16,7 @@
         <img src="/public/assets/spartan.png" alt="Nature Image" />
         <div class="overlay"></div>
       </div>
+
       <div class="btn1">
         <button id="toggle-btn">Sign Up</button>
       </div>
@@ -46,8 +47,7 @@
             <div
               class="input-group"
               id="confirm-password-field"
-              style="display: none"
-            >
+              style="display: none">
               <i class="fas fa-lock"></i>
               <input
                 type="password"
@@ -56,6 +56,18 @@
                 required
               />
             </div>
+            <div
+            class="input-group"
+            id="input"
+            style="display: none">
+            <i class="fas fa-lock"></i>
+            <input
+              type="text"
+              id="input"
+              placeholder="Codigo"
+              required
+            />
+          </div>
             <div id="extra-options" class="options">
               <label> <input type="checkbox" /> Terminos y condiciones </label>
               <a href="#">¿Olvidaste tu contraseña?</a>
@@ -63,6 +75,9 @@
 
             <div class="btn2">
               <a class="inc" href="../public/chat.html"> Login </a>
+            </div>
+            <div class="btn0" id="btn0">
+              <a class="inc2"> Administrador  </a>            
             </div>
           </form>
           <div class="social-login">
