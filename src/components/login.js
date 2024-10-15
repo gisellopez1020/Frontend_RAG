@@ -195,6 +195,20 @@ document.addEventListener("DOMContentLoaded", function () {
       switchToLogin();
     }
   });
+  //para el boton btn1
+  const btn1 = document.getElementById("toggle-btn");
+  let movedRight = false;
+
+  btn1.addEventListener("click", function () {
+    if (movedRight) {
+      btn1.classList.remove("move-left");
+      btn1.classList.add("move-right");
+    } else {
+      btn1.classList.remove("move-right");
+      btn1.classList.add("move-left");
+    }
+    movedRight = !movedRight;
+  });
 
   // Detectar cambios en el rol seleccionado
   const rolField = document.getElementById("rol-list");
