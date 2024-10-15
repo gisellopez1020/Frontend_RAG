@@ -106,7 +106,15 @@ setTimeout(function () {
   //Función que actualiza un usuario por su ID
   async function updateUser() {
     const userId = document.getElementById("userId").value;
+    if (!userId) {
+      document.getElementById("modalResult").textContent =
+        "Por favor, ingresa un ID de usuario.";
+      return;
+    }
+
+    // Después de obtener el ID, pedir el nuevo rol
     const newRole = prompt("Ingrese el nuevo rol:");
+
     if (newRole) {
       try {
         const response = await fetch(
@@ -119,13 +127,24 @@ setTimeout(function () {
             body: JSON.stringify({ rol: newRole }),
           }
         );
+
         const result = await response.json();
-        document.getElementById("modalResult").textContent =
-          "Rol actualizado exitosamente";
+
+        if (response.ok) {
+          document.getElementById("modalResult").textContent =
+            "Rol actualizado exitosamente.";
+        } else {
+          document.getElementById(
+            "modalResult"
+          ).textContent = `Error al actualizar el rol: ${result.detail}`;
+        }
       } catch (error) {
         document.getElementById("modalResult").textContent =
           "Error al actualizar el rol";
       }
+    } else {
+      document.getElementById("modalResult").textContent =
+        "Actualización cancelada. No se ingresó un nuevo rol.";
     }
   }
 
