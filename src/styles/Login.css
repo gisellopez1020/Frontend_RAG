@@ -32,19 +32,19 @@ body {
   right: 0;
   width: 50%; /* mitad del contenedor */
   overflow: hidden;
-  height: 100%; 
+  height: 100%;
   align-items: center;
   z-index: -1;
   transition: transform 0.8s ease, opacity 0.8s ease;
 }
 
 .image-container2 img {
-  width: 100%; 
+  width: 100%;
   height: 100%;
   object-fit: cover; /* Mantiene la proporción de la imagen */
   transition: transform 0.6s ease-in-out, opacity 0.8s ease;
 }
-.image-container{
+.image-container {
   width: 50%;
   position: relative;
   overflow: hidden;
@@ -107,21 +107,25 @@ body {
   margin-bottom: 20px;
   text-align: center;
   font-weight: bold;
-  font-family:Arial, Helvetica, sans-serif; 
-  font-size: 60px; 
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 60px;
   color: rgb(124, 85, 231);
-  text-shadow: -1px 0 1px #000000, 0 1px 1px #000000, 1px 0 1px #000000, 0 -1px 1px #000000, -2px 2px 2px #000000, 2px 2px 2px #000000, 1px 1px 1px #000000, 2px 2px 2px #000000, 3px 3px 3px #000000, 4px 4px #3d3d3d, 5px 5px #3d3d3d,6px 6px #3d3d3d, 7px 7px #3d3d3d;
-
+  text-shadow: -1px 0 1px #000000, 0 1px 1px #000000, 1px 0 1px #000000,
+    0 -1px 1px #000000, -2px 2px 2px #000000, 2px 2px 2px #000000,
+    1px 1px 1px #000000, 2px 2px 2px #000000, 3px 3px 3px #000000,
+    4px 4px #3d3d3d, 5px 5px #3d3d3d, 6px 6px #3d3d3d, 7px 7px #3d3d3d;
 }
-.login-form2 h2{
+.login-form2 h2 {
   margin-bottom: 20px;
   text-align: center;
   font-weight: bold;
-  font-family:Arial, Helvetica, sans-serif; 
-  font-size: 50px; 
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 50px;
   color: rgb(124, 85, 231);
-  text-shadow: -1px 0 1px #000000, 0 1px 1px #000000, 1px 0 1px #000000, 0 -1px 1px #000000, -2px 2px 2px #000000, 2px 2px 2px #000000, 1px 1px 1px #000000, 2px 2px 2px #000000, 3px 3px 3px #000000, 4px 4px #3d3d3d, 5px 5px #3d3d3d,6px 6px #3d3d3d, 7px 7px #3d3d3d;
-
+  text-shadow: -1px 0 1px #000000, 0 1px 1px #000000, 1px 0 1px #000000,
+    0 -1px 1px #000000, -2px 2px 2px #000000, 2px 2px 2px #000000,
+    1px 1px 1px #000000, 2px 2px 2px #000000, 3px 3px 3px #000000,
+    4px 4px #3d3d3d, 5px 5px #3d3d3d, 6px 6px #3d3d3d, 7px 7px #3d3d3d;
 }
 
 .input-group {
@@ -164,10 +168,11 @@ body {
 
 .options a {
   color: #161d7d;
-  
 }
 .options a:hover {
-  transform: scale(0.95); /* Simula el hundimiento al reducir el tamaño ligeramente */
+  transform: scale(
+    0.95
+  ); /* Simula el hundimiento al reducir el tamaño ligeramente */
 }
 
 @keyframes move-right {
@@ -188,7 +193,7 @@ body {
   }
 }
 
-.btn1 button{
+.btn1 button {
   width: 11%;
   padding: 12px;
   background: linear-gradient(to right, #c44dcd, #7c70f8);
@@ -212,13 +217,15 @@ input::placeholder {
 .move-left {
   animation: move-left 0.5s forwards;
 }
-.btn2, .btn0, .btn3 {
+.btn2,
+.btn0,
+.btn3 {
   display: flex;
   justify-content: center;
-  align-items: center; 
-  margin-top: 20px; 
+  align-items: center;
+  margin-top: 20px;
 }
-.btn2 a{
+.btn2 a {
   width: 60%;
   padding: 11px 60px;
   background: linear-gradient(to right, #c44dcd, #7c70f8);
@@ -233,7 +240,7 @@ input::placeholder {
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   min-width: 50px; /* Fija un ancho mínimo para el botón */
 }
-.btn0 a{
+.btn0 a {
   width: 60%;
   padding: 11px 40px;
   background: linear-gradient(to right, #c44dcd, #7c70f8);
@@ -254,16 +261,17 @@ input::placeholder {
   transform: scale(0.95);
 }
 
-
 .btn2 a:hover {
-  transform: scale(0.95); /* Simula el hundimiento al reducir el tamaño ligeramente */
+  transform: scale(
+    0.95
+  ); /* Simula el hundimiento al reducir el tamaño ligeramente */
   background: linear-gradient(to right, #ca6ad1, #8a7ffa);
-
 }
 .btn0 a:hover {
-  transform: scale(0.95); /* Simula el hundimiento al reducir el tamaño ligeramente */
+  transform: scale(
+    0.95
+  ); /* Simula el hundimiento al reducir el tamaño ligeramente */
   background: linear-gradient(to right, #ca6ad1, #8a7ffa);
-
 }
 .btn2 a:active {
   transform: scale(0.9); /* Hundimiento más pronunciado al hacer clic */
@@ -300,9 +308,10 @@ input::placeholder {
 }
 
 .social-icons a:hover {
-  transform: scale(0.95); /* Simula el hundimiento al reducir el tamaño ligeramente */
+  transform: scale(
+    0.95
+  ); /* Simula el hundimiento al reducir el tamaño ligeramente */
   background: linear-gradient(to right, #c08bc4, #a49df1);
-
 }
 .social-icons a:active {
   transform: scale(0.9); /* Hundimiento más pronunciado al hacer clic */
@@ -319,7 +328,7 @@ input::placeholder {
   z-index: 2;
   transition: background-color 0.3s, transform 0.2s ease;
   display: flex;
-  align-items: center; 
+  align-items: center;
   gap: 10px; /* Espacio entre el texto y el icono */
 }
 
@@ -336,9 +345,4 @@ input::placeholder {
 }
 .image-container2 img.zoom-in {
   transform: scale(1.1);
-}
-/*administrador*/
-
-#form-title2{
-
 }
