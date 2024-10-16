@@ -315,45 +315,129 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Función para subir el archivo al servidor
-    const sendFile = async (file) => {
-        const formData = new FormData();
-        formData.append('file', file);
+  let isFileUploaded = false; // Variable para controlar el estado de subida del archivo
 
-        try {
-            const response = await fetch('http://localhost:8001/save-document', {
-                method: 'POST',
-                body: formData,
-            });
+// Función para subir el archivo al servidor
+const sendFile = async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
 
-            if (!response.ok) {
-                const errorResponse = await response.json();
-                throw new Error(
-                    `Error: ${errorResponse.message || "Error en la solicitud al servidor"}`
-                );
-            }
+    try {
+        const response = await fetch('http://localhost:8001/save-document', {
+            method: 'POST',
+            body: formData,
+        });
 
-            const result = await response.json();
-            console.log('Archivo subido con éxito:', result);
-
-            // Mostrar mensaje de confirmación en el modal si el archivo se subió correctamente
-            if (result.message === "Documento guardado exitosamente.") {
-                const newMessage = document.createElement('div');
-                newMessage.textContent = `Archivo ${file.name} guardado exitosamente.`;
-                newMessage.style.color = 'green';
-                uploadMessage.appendChild(newMessage);
-                documentId = result.document_id; // Guardar el ID del documento para consultas futuras
-            }
-
-            return result; // Devuelve la respuesta de la API
-        } catch (error) {
-            console.error('Error:', error);
-            const errorMessage = document.createElement('div');
-            errorMessage.textContent = `Error al subir el archivo ${file.name}.`;
-            errorMessage.style.color = 'red';
-            uploadMessage.appendChild(errorMessage);
+        if (!response.ok) {
+            const errorResponse = await response.json();
+            throw new Error(
+                `Error: ${errorResponse.message || "Error en la solicitud al servidor"}`
+            );
         }
-    };
+
+        const result = await response.json();
+        console.log('Archivo subido con éxito:', result);
+
+        // Mostrar mensaje de confirmación en el modal si el archivo se subió correctamente
+        if (result.message === "Documento guardado exitosamente.") {
+            const newMessage = document.createElement('div');
+            newMessage.textContent = `Archivo ${file.name} guardado exitosamente.`;
+            newMessage.style.color = 'green';
+            uploadMessage.appendChild(newMessage);
+            documentId = result.document_id; // Guardar el ID del documento para consultas futuras
+            isFileUploaded = true; // Cambiar el estado a true
+        }
+
+        return result; // Devuelve la respuesta de la API
+    } catch (error) {
+        console.error('Error:', error);
+        const errorMessage = document.createElement('div');
+        errorMessage.textContent = `Error al subir el archivo ${file.name}.`;
+        errorMessage.style.color = 'red';
+        uploadMessage.appendChild(errorMessage);
+    }
+};
+
+// Función para manejar preguntas después de subir el archivo
+const handleQuestion = (question) => {
+    if (isFileUploaded) {
+        // Aquí va la lógica para procesar la pregunta
+        console.log('Pregunta recibida:', question);
+        // Reiniciar el estado después de procesar la pregunta
+        isFileUploaded = false; 
+    } else {
+        console.log('Por favor, sube un archivo primero.');
+    }
+};
+
+
+//otra forma
+let isFileUploaded2 = false; // Variable para controlar el estado de subida del archivo
+let documentId2; // Variable para almacenar el ID del documento
+
+// Función para subir el archivo al servidor
+const sendFile2 = async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+        const response = await fetch('http://localhost:8001/save-document', {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (!response.ok) {
+            const errorResponse = await response.json();
+            throw new Error(
+                `Error: ${errorResponse.message || "Error en la solicitud al servidor"}`
+            );
+        }
+
+        const result = await response.json();
+        console.log('Archivo subido con éxito:', result);
+
+        // Mostrar mensaje de confirmación en el modal si el archivo se subió correctamente
+        if (result.message === "Documento guardado exitosamente.") {
+            const newMessage = document.createElement('div');
+            newMessage.textContent = `Archivo ${file.name} guardado exitosamente.`;
+            newMessage.style.color = 'green';
+            uploadMessage.appendChild(newMessage);
+            documentId = result.document_id; // Guardar el ID del documento para consultas futuras
+            isFileUploaded = true; // Cambiar el estado a true
+        }
+
+        return result; // Devuelve la respuesta de la API
+    } catch (error) {
+        console.error('Error:', error);
+        const errorMessage = document.createElement('div');
+        errorMessage.textContent = `Error al subir el archivo ${file.name}.`;
+        errorMessage.style.color = 'red';
+        uploadMessage.appendChild(errorMessage);
+    }
+};
+
+// Función para manejar preguntas después de subir el archivo
+const handleQuestion2 = (question) => {
+    if (isFileUploaded) {
+        // Aquí puedes procesar la pregunta en relación al archivo subido
+        console.log('Pregunta recibida:', question);
+        
+        // Lógica para manejar la pregunta en función del documento
+        processQuestion(question, documentId); // Ejemplo de procesamiento
+
+        // Reiniciar el estado después de procesar la pregunta
+        isFileUploaded = false; 
+    } else {
+        console.log('Por favor, sube un archivo primero antes de hacer una pregunta.');
+    }
+};
+
+// Ejemplo de función para procesar la pregunta
+const processQuestion = (question, docId) => {
+    // Lógica para procesar la pregunta relacionada con el documento
+    console.log(`Procesando la pregunta "${question}" para el documento ID: ${docId}`);
+};
+
 
     // Subir archivo al hacer clic en el botón de enviar mensaje
     sendBtn.addEventListener('click', async () => {
