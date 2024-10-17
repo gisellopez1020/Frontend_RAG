@@ -34,6 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 3000);
   }
 
+  if (window.location.hash === "#signup") {
+    switchToSignUp();
+  }
+
   async function loginUser(username, password) {
     const url = "http://localhost:8001/user/validate";
 
@@ -227,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (loginResponse) {
           console.log("Rol del usuario:", loginResponse.rol); // Añade esta línea
           if (
-            loginResponse.rol === "Administrador" ||
+            loginResponse.rol === "administrador" ||
             loginResponse.rol === "admin"
           ) {
             window.location.href = "../public/admin-dashboard.html"; // Redirigir al dashboard de administrador
@@ -249,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const registerResponse = await registerUser(user, adminCode);
           if (registerResponse) {
             alert("Administrador registrado exitosamente.");
-            window.location.href = "../public/chat.html"; // Redirigir después del registro
+            window.location.href = "../public/admin-dashboard.html"; // Redirigir después del registro
           }
         } else {
           const registerResponse = await registerUser(user);
