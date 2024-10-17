@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("/public/assets/espartano.jpeg") no-repeat;
+  background: url("/public/assets/fondo05.avif") no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -100,28 +100,16 @@ body {
 .login-form {
   max-width: 300px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 0px;
 }
 
 .login-form h2 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   text-align: center;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 60px;
-  color: rgb(124, 85, 231);
-  text-shadow: -1px 0 1px #000000, 0 1px 1px #000000, 1px 0 1px #000000,
-    0 -1px 1px #000000, -2px 2px 2px #000000, 2px 2px 2px #000000,
-    1px 1px 1px #000000, 2px 2px 2px #000000, 3px 3px 3px #000000,
-    4px 4px #3d3d3d, 5px 5px #3d3d3d, 6px 6px #3d3d3d, 7px 7px #3d3d3d;
-}
-.login-form2 h2 {
-  margin-bottom: 20px;
-  text-align: center;
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 50px;
-  color: rgb(124, 85, 231);
+  color: rgb(126, 96, 207);
   text-shadow: -1px 0 1px #000000, 0 1px 1px #000000, 1px 0 1px #000000,
     0 -1px 1px #000000, -2px 2px 2px #000000, 2px 2px 2px #000000,
     1px 1px 1px #000000, 2px 2px 2px #000000, 3px 3px 3px #000000,
@@ -240,21 +228,7 @@ input::placeholder {
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   min-width: 50px; /* Fija un ancho mínimo para el botón */
 }
-.btn0 a {
-  width: 60%;
-  padding: 11px 40px;
-  background: linear-gradient(to right, #c44dcd, #7c70f8);
-  color: white;
-  border: none;
-  border-radius: 50px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s ease;
-  display: inline-block;
-  text-decoration: none;
-  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-  min-width: 50px; /* Fija un ancho mínimo para el botón */
-}
+
 
 .btn1 button:hover {
   background: linear-gradient(to right, #ca6ad1, #8a7ffa);
@@ -267,16 +241,8 @@ input::placeholder {
   ); /* Simula el hundimiento al reducir el tamaño ligeramente */
   background: linear-gradient(to right, #ca6ad1, #8a7ffa);
 }
-.btn0 a:hover {
-  transform: scale(
-    0.95
-  ); /* Simula el hundimiento al reducir el tamaño ligeramente */
-  background: linear-gradient(to right, #ca6ad1, #8a7ffa);
-}
+
 .btn2 a:active {
-  transform: scale(0.9); /* Hundimiento más pronunciado al hacer clic */
-}
-.btn0 a:active {
   transform: scale(0.9); /* Hundimiento más pronunciado al hacer clic */
 }
 
@@ -345,4 +311,8 @@ input::placeholder {
 }
 .image-container2 img.zoom-in {
   transform: scale(1.1);
+}
+#rol-list{
+ border-radius: 3px;
+
 }

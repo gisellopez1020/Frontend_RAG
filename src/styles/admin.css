@@ -101,6 +101,7 @@ section.features {
   align-items: center;
   height: 100%;
   padding: 40px 20px;
+  
 }
 
 .feature-list {
@@ -134,6 +135,7 @@ section.features {
 .feature {
   display: flex;
   justify-content: center;
+
 }
 
 .modal {
