@@ -48,9 +48,20 @@ function agregarMensajeIA(mensaje) {
   const respuestaIA = document.createElement("div");
   respuestaIA.classList.add("message-box");
   respuestaIA.classList.add("ia");
-  respuestaIA.textContent = mensaje;
   chatContainer.appendChild(respuestaIA);
-  chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll automático
+
+  let i = 0;
+
+  function typeWriter() {
+    if (i < mensaje.length) {
+      respuestaIA.textContent += mensaje.charAt(i);
+      i++;
+      setTimeout(typeWriter, 25); // Controla la velocidad de escritura ajustando el valor (en milisegundos)
+    }
+  }
+
+  typeWriter(); // Inicia la animación de máquina de escribir
+  chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
 // Función para limpiar el chat y comenzar uno nuevo
@@ -334,7 +345,7 @@ document.addEventListener("DOMContentLoaded", function () {
       messageInput.value = "";
       await handleQuestion(mensaje);
     } else {
-      enviarMensaje(); // Función existente para manejar mensajes normales
+      enviarMensaje();
     }
   });
 
